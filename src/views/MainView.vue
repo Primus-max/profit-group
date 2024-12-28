@@ -9,7 +9,13 @@ import ShieldIcon from '@/components/icons/ShieldIcon.vue'
 
 <template>
   <header>
-    <NavBar />
+    <NavBar :menuItems="[
+      { id: 'home', label: 'Главная' },
+      { id: 'about', label: 'О нас' },
+      { id: 'services', label: 'Услуги' },
+      { id: 'portfolio', label: 'Портфолио' },
+      { id: 'contacts', label: 'Контакты' }
+    ]" />
   </header>
   <main>
     <h1>Главная страница</h1>

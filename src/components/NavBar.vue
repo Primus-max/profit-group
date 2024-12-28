@@ -1,18 +1,60 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+import LogoIcon from '@/components/icons/LogoIcon.vue'
+
+const props = defineProps({
+  menuItems: {
+    type: Array,
+    default: () => [
+      { id: 'home', label: 'Главная' },
+      { id: 'about', label: 'О нас' },
+      { id: 'services', label: 'Услуги' },
+      { id: 'portfolio', label: 'Портфолио' },
+      { id: 'contacts', label: 'Контакты' }
+    ]
+  }
+})
+
+const activeSection = ref('home')
+
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId)
   element?.scrollIntoView({ behavior: 'smooth' })
 }
+
+const checkActiveSection = () => {
+  const sections = props.menuItems.map(item => document.getElementById(item.id))
+  const scrollPosition = window.scrollY + window.innerHeight / 3
+
+  for (let i = sections.length - 1; i >= 0; i--) {
+    const section = sections[i]
+    if (section && section.offsetTop <= scrollPosition) {
+      activeSection.value = props.menuItems[i].id
+      break
+    }
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', checkActiveSection)
+  checkActiveSection()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', checkActiveSection)
+})
 </script>
 
 <template>
-  <nav class="navbar">
-    <a href="#home" @click.prevent="scrollToSection('home')">Главная</a>
-    <a href="#about" @click.prevent="scrollToSection('about')">О нас</a>
-    <a href="#services" @click.prevent="scrollToSection('services')">Услуги</a>
-    <a href="#portfolio" @click.prevent="scrollToSection('portfolio')">Портфолио</a>
-    <a href="#contacts" @click.prevent="scrollToSection('contacts')">Контакты</a>
-  </nav>
+
+  <div>    
+    <nav class="navbar">     
+      <a v-for="item in menuItems" :key="item.id" :href="`#${item.id}`" :class="{ active: activeSection === item.id }"
+        @click.prevent="scrollToSection(item.id)">
+        {{ item.label }}
+      </a>
+    </nav>
+  </div>
 </template>
 
 <style scoped>
@@ -27,7 +69,7 @@ const scrollToSection = (sectionId) => {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar a {
@@ -35,9 +77,32 @@ const scrollToSection = (sectionId) => {
   color: #333;
   padding: 0.5rem 1rem;
   transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--color-blue);
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+  width: 80%;
 }
 
 .navbar a:hover {
-  color: #42b883;
+  color: var(--color-blue);
+}
+
+.navbar a.active {
+  color: var(--color-blue);
+  font-weight: 500;
 }
 </style>
