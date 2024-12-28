@@ -18,6 +18,7 @@ import ShieldIcon from '@/components/icons/ShieldIcon.vue'
     <StarCrownIcon />
     <ScalesIcon />
     <ShieldIcon />
+   
   </main>
   <footer>
     <h1>Footer</h1>
