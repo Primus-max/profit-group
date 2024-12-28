@@ -47,8 +47,9 @@ onUnmounted(() => {
 
 <template>
 
-  <div>    
-    <nav class="navbar">     
+  <div>
+    <nav class="navbar">
+      <span class="logo">Profit GROUP</span>
       <a v-for="item in menuItems" :key="item.id" :href="`#${item.id}`" :class="{ active: activeSection === item.id }"
         @click.prevent="scrollToSection(item.id)">
         {{ item.label }}
@@ -70,6 +71,14 @@ onUnmounted(() => {
   justify-content: center;
   gap: 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  position: absolute;
+  top:22px;
+  left: 50px;
+  font-size: 1.5rem;
+  font-weight: var(--fw-semibold);
 }
 
 .navbar a {
