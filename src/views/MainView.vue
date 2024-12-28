@@ -3,6 +3,8 @@ import NavBar from '@/components/NavBar.vue'
 import AboutUs from '@/components/sections/AboutUs.vue'
 import Banner from '@/components/sections/Banner.vue'
 import OurAchievements from '@/components/sections/OurAchievements.vue'
+import GetConsultation from '@/components/sections/GetConsultation.vue'
+import Services from '@/components/sections/Services.vue'
 </script>
 
 <template>
@@ -20,6 +22,8 @@ import OurAchievements from '@/components/sections/OurAchievements.vue'
       <Banner />
       <AboutUs />
       <OurAchievements />
+      <GetConsultation />
+      <Services />
     </main>
     <footer>
 

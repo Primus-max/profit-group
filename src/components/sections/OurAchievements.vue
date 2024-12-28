@@ -1,25 +1,33 @@
 <template>
-    <div class="our-achievements">
+    <BaseSection 
+        background="var(--color-gray2)" 
+        :z-index="3"
+        has-radius
+    >
         <h2 class="our-achievements__title">Our Achievements</h2>
-    </div>
+    </BaseSection>
 </template>
 
-<script>
-export default {
-
-}
+<script setup>
+import BaseSection from '@/components/sections/base/BaseSection.vue'
 </script>
 
-<style lang="css" scoped>
-@import '@/assets/variables.css';
+<style scoped>
+.our-achievements__title {
+    font-size: 2.5rem;
+    font-weight: var(--fw-bold);
+    color: var(--color-white);
+}
 
-.our-achievements {
-    width: 100%;
-    height: 100vh;
-    border-top-left-radius: 32px;
-    border-top-right-radius: 32px;
-    background: var(--color-gray2);
-    z-index: 3;
-    margin-top: var(--section-margin-overlay);
+@media (min-width: 768px) {
+    .our-achievements__title {
+        font-size: 3.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .our-achievements__title {
+        font-size: 4rem;
+    }
 }
 </style>
