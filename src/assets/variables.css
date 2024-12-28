@@ -15,6 +15,10 @@
   --fw-bold: 700;
   --fw-extrabold: 800;
 
+
+  /* Позиционирование */
+  --section-margin-overlay: -38px;
+
   /*   
   
     --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);

@@ -1,32 +1,72 @@
 <script setup>
 import NavBar from '@/components/NavBar.vue'
-import GavelIcon from '@/components/icons/GavelIcon.vue'
-import FolderIcon from '@/components/icons/FolderIcon.vue'
-import StarCrownIcon from '@/components/icons/StarCrownIcon.vue'
-import ScalesIcon from '@/components/icons/ScalesIcon.vue'
-import ShieldIcon from '@/components/icons/ShieldIcon.vue'
+import AboutUs from '@/components/sections/AboutUs.vue'
+import Banner from '@/components/sections/Banner.vue'
+import OurAchievements from '@/components/sections/OurAchievements.vue'
 </script>
 
 <template>
-  <header>
-    <NavBar :menuItems="[
-      { id: 'home', label: 'Главная' },
-      { id: 'about', label: 'О нас' },
-      { id: 'services', label: 'Услуги' },
-      { id: 'portfolio', label: 'Портфолио' },
-      { id: 'contacts', label: 'Контакты' }
-    ]" />
-  </header>
-  <main>
-    <h1>Главная страница</h1>
-    <GavelIcon />
-    <FolderIcon />
-    <StarCrownIcon />
-    <ScalesIcon />
-    <ShieldIcon />
-   
-  </main>
-  <footer>
-    <h1>Footer</h1>
-  </footer>
+  <div class="main-view">
+    <header>
+      <NavBar :menuItems="[
+        { id: 'home', label: 'Главная' },
+        { id: 'about', label: 'О нас' },
+        { id: 'services', label: 'Услуги' },
+        { id: 'portfolio', label: 'Портфолио' },
+        { id: 'contacts', label: 'Контакты' }
+      ]" />
+    </header>
+    <main class="main-view__container">
+      <Banner />
+      <AboutUs />
+      <OurAchievements />
+    </main>
+    <footer>
+
+    </footer>
+  </div>
 </template>
+
+<style lang="css" scoped>
+.main-view {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 96%;
+  margin: 0 auto;
+}
+
+
+.main-view__container {
+  padding: 0;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  width: 100%;
+}
+
+main {
+  flex: 1;
+  width: 92%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+  main {
+    width: 85%;
+  }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  main {
+    width: 80%;
+  }
+}
+</style>
