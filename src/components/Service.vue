@@ -46,15 +46,17 @@ const toggle = () => {
 
 .service__title {
     font-size: 1.2rem;
-    font-weight: var(--fw-bold);
+    font-weight: var(--fw-light);
     color: var(--color-black);
 }
 
 .service__toggle {
     width: 24px;
     height: 24px;
+    padding: 16px;
     position: relative;
-    background: transparent;
+    border-radius: 20px;
+    background: var(--color-blue);
 }
 
 .plus-icon {

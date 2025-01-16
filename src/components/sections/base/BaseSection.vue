@@ -65,14 +65,14 @@ defineProps({
 
 @media (min-width: 768px) {
   .base-section__container {
-    width: 85%;
+    width: 100%;
     padding: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .base-section__container {
-    width: 80%;
+    width: 100%;
     padding: 2rem;
   }
 }
