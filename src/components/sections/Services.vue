@@ -1,5 +1,5 @@
 <template>
-    <BaseSection background="var(--color-gray3)" :z-index="4" has-radius>
+    <BaseSection background="var(--color-gray3)" :z-index="4"  has-radius>
         <div class="services__container">
             <div class="services__header">
                 <h2 class="services__title">Услуги</h2>
@@ -26,6 +26,7 @@
 </template>
 
 <script setup>
+import {ref} from 'vue';
 import BaseSection from '@/components/sections/base/BaseSection.vue'
 import Service from '@/components/Service.vue'
 
@@ -80,16 +81,16 @@ const services = [
 
 .services__header {
     width: 100%;
+    margin-top: 27px;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    align-items: flex-start;
 }
 
 .services__title {
-    font-size: 1.7rem;
-    font-weight: var(--fw-bold);
-    line-height: 33.6px;
-    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: var(--fw-light);
+    color: var(--color-black);
 }
 
 .services__description {
@@ -104,23 +105,21 @@ const services = [
     height: 100%;
     display: flex;
     flex-wrap: wrap;
-
-   
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: flex-start;
 }
 
 .service-item {
-    width: 30%;
+    width: 47%;
     height: 150px;
-    padding: 1.5rem;
+    margin-inline: 5px;
+    margin-bottom: 10px;
+    padding: 2%;
     background: var(--color-white);
-    border-radius: 8px;
+    border-radius: 29px;
     color: var(--color-black);
-}
 
-.service-item__title {
-    font-size: 1.2rem;
-    font-weight: var(--fw-bold);
-    margin-bottom: 1rem;
 }
 
 .service-item__description {
@@ -129,11 +128,16 @@ const services = [
     color: var(--color-gray);
 }
 
-
+@media (max-width: 400px){
+    .services__content {
+    flex-direction: column;
+    }
+}
 
 @media (min-width: 768px) {
     .services__title {
-        font-size: 3.25rem;
+     font-size: 3.25rem;
+     color: white;
     }
 }
 
