@@ -47,7 +47,9 @@ const toggle = () => {
 }
 
 .service__title {
-    font-size: 1.3rem;
+    width: 50%;
+    padding-left: 10px;
+    font-size: 1.1rem;
     text-align: left;
     font-weight: var(--fw-medium);
     color: var(--color-black);
@@ -94,4 +96,18 @@ const toggle = () => {
     line-height: 1.5;
     color: var(--color-gray);
 }
+
+/* decktop */
+@media  (min-width: 1024px){
+    .service__title {
+    width: 100%;
+    padding-left: 10px;
+    font-size: 1.1rem;
+    text-align: left;
+    font-weight: var(--fw-medium);
+    color: var(--color-black);
+}
+}
+    
+
 </style>

@@ -155,7 +155,7 @@ const services = [
     display: flex;
     }
     .services__title{
-         font-size: 4rem;
+        font-size: 4rem;
         color: var(--color-white);
         font-weight: var(--fw-light);
     }

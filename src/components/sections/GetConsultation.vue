@@ -2,22 +2,24 @@
     <BaseSection background="var(--color-white)" :z-index="4" has-radius>
         <div class="get-consultation__container">
             <div class="get-consultation__header">
-                <h2 class="get-consultation__title">Получить консультацию</h2>
+                <h2 class="get-consultation__title">Получитe консультацию</h2>
                 <p class="get-consultation__description">
                     Укажите свои контактные данные, и наши специалисты свяжутся с Вамии в ближайшее время
                 </p>
             </div>
             <div class="get-consultation__content">
-                <form class="get-consultation__form">
-                    <div class="form-group">
+                
+                    <form class="get-consultation__form">
+                        <div class="form-group">
                         <input type="text" placeholder="Ваше имя" class="form-input">
-                    </div>
-                    <div class="form-group">
+                        </div>
+                        <div class="form-group">
                         <input type="tel" placeholder="Ваш телефон" class="form-input">
-                    </div>
-                    <Checkbox v-model="isChecked" text="Согласен с условиями" />
-                    <button type="submit" @click.prevent class="form-submit">Получить консультацию</button>
-                </form>
+                        </div>
+                        <Checkbox class="Checkbox" v-model="isChecked" text="Я соглашаюсь на обработку персональных данных и принимаю условия политики конфиденциальности" />
+                        <button type="submit" @click.prevent class="form-submit">Получить консультацию</button>
+                    </form>
+                 
             </div>
         </div>
     </BaseSection>
@@ -25,6 +27,7 @@
 
 <script setup>
 import { ref } from 'vue'
+
 import BaseSection from '@/components/sections/base/BaseSection.vue'
 import Checkbox from '@/components/elemets/CheckBox.vue'
 
@@ -112,6 +115,12 @@ const isChecked = ref(false)
     background-color: var(--color-black);
 }
 
+.Checkbox{
+    font-weight: var(--fw-light);
+    font-size: 0.8rem;
+    text-align: left;
+}
+
 @media (min-width: 768px) {
     .get-consultation__title {
         font-size: 3.25rem;
@@ -119,8 +128,50 @@ const isChecked = ref(false)
 }
 
 @media (min-width: 1024px) {
+    .get-consultation__content{
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+    .get-consultation__header{
+        height: 100%;
+        width: 50%;
+        padding-top: 70px;
+        padding-left: 90px;
+        display: flex;
+        text-align: left;
+        
+    
+    }
+    .get-consultation__form{
+        width: 100%;
+        padding-top: 50px;
+        padding-inline: 10px;
+        padding-block-end: 50px;
+        display: flex;
+        font-size:1rem;
+    }
+
+    .form-input{
+    height: 90%;
+    }
+
     .get-consultation__title {
-        font-size: 4rem;
+        width: 40%;
+        font-size: 2.6rem;
+        font-weight: var(--fw-light);
+        text-align: left;
+    }
+
+    .get-consultation__description{
+        width: 67%;
+        font-size: 1.2rem;
+        font-weight:var(--fw-light)
+    }
+    .get-consultation__container{
+        width: 100%;
+        height: 100%;
+        display: flex;
     }
 }
 </style>
