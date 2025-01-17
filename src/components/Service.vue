@@ -2,6 +2,8 @@
     <div class="service" :class="{ 'service--active': isOpen }" @click="toggle">
         <div class="service__header">
             <h3 class="service__title">{{ service.title }}</h3>
+         </div>   
+         <div class="service_toggle_conteiner">
             <button class="service__toggle">
                 <span class="plus-icon"></span>
             </button>
@@ -45,14 +47,15 @@ const toggle = () => {
 }
 
 .service__title {
-    font-size: 1.2rem;
-    font-weight: var(--fw-light);
+    font-size: 1.3rem;
+    text-align: left;
+    font-weight: var(--fw-medium);
     color: var(--color-black);
 }
 
 .service__toggle {
-    width: 24px;
-    height: 24px;
+    width: 48px;
+    height: 40px;
     padding: 16px;
     position: relative;
     border-radius: 20px;
@@ -64,9 +67,9 @@ const toggle = () => {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 16px;
+    width: 19px;
     height: 2px;
-    background: var(--color-black);
+    background: var(--color-white);
     transition: transform 0.3s ease;
 }
 

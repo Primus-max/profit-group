@@ -1,5 +1,5 @@
 <template>
-    <BaseSection background="var(--color-gray3)" :z-index="4"  has-radius>
+    <BaseSection background="var(--color-gray3)" :z-index="4" :height="`${heightServices}+px`" has-radius>
         <div class="services__container">
             <div class="services__header">
                 <h2 class="services__title">Услуги</h2>
@@ -11,6 +11,7 @@
                 
                   
                     <Service class="service-item"
+                        ref="service"
                         v-for="service in services" 
                         :key="service.id" 
                         :service="{ 
@@ -26,10 +27,19 @@
 </template>
 
 <script setup>
-import {ref} from 'vue';
+import {ref,onMounted} from 'vue';
 import BaseSection from '@/components/sections/base/BaseSection.vue'
-import Service from '@/components/Service.vue'
+import Service from '@/components/Service.vue'  
 
+const heightServices = ref(0)
+// onMounted(()=>{
+//     calcHeightServices()
+// })
+const calcHeightServices = ()=>{
+    for (const service in services ){
+        const trgdf = service.name;
+    }
+} 
 const services = [
     {
         id: 1,
@@ -66,7 +76,7 @@ const services = [
 /* .base-section__container {
     padding: 0 !important;
 } */
-
+/* все настройки для мобильной верстки */
 .services__container {
     width: 100%;
     height: 100vh;
@@ -88,9 +98,9 @@ const services = [
 }
 
 .services__title {
-    font-size: 1.2rem;
-    font-weight: var(--fw-light);
-    color: var(--color-black);
+    font-size: 2.5rem;
+    font-weight: var(--fw-medium);
+    color: var(--color-white);
 }
 
 .services__description {
@@ -111,14 +121,16 @@ const services = [
 }
 
 .service-item {
-    width: 47%;
-    height: 150px;
+    width: 100%;
+    height: 145px;
     margin-inline: 5px;
     margin-bottom: 10px;
     padding: 2%;
     background: var(--color-white);
     border-radius: 29px;
     color: var(--color-black);
+    display: flex;
+    justify-content: space-between;
 
 }
 
@@ -128,23 +140,32 @@ const services = [
     color: var(--color-gray);
 }
 
-@media (max-width: 400px){
-    .services__content {
+/* настройки для десктопа */
+@media (min-width: 1024px){
+.service-item {
+    flex-direction: row;
+    width: 47%;
+    height: 150px;
+    margin-inline: 5px;
+    margin-bottom: 10px;
+    padding: 2%;
+    background: var(--color-white);
+    border-radius: 29px;
+    color: var(--color-black);
+    display: flex;
+    }
+    .services__title{
+         font-size: 4rem;
+        color: var(--color-white);
+        font-weight: var(--fw-light);
+    }
+    .services__header {
+    width: 100%;
+    display: flex;
     flex-direction: column;
-    }
+    align-items: flex-start;
 }
 
-@media (min-width: 768px) {
-    .services__title {
-     font-size: 3.25rem;
-     color: white;
-    }
 }
 
-@media (min-width: 1024px) {
-    .services__title {   
-      
-       
-    }
-}
 </style>
