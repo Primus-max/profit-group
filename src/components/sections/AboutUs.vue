@@ -21,6 +21,7 @@ import BaseSection from '@/components/sections/base/BaseSection.vue'
   font-size: 2.5rem;
   font-weight: var(--fw-light);
   margin-bottom: 1.5rem;
+  padding-top:50px;
   color: var(--color-black);
   text-align: left;
 }

@@ -129,11 +129,15 @@ const isChecked = ref(false)
     text-align: left;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) and (min-width:650px) and (orientation:landscape){
     .get-consultation__title {
         font-size: 3.25rem;
     }
-   
+    .get-consultation__container{
+        width: 100% ;
+        height: 68%;
+        display: flex;
+    }
 }
 
 
@@ -185,7 +189,7 @@ const isChecked = ref(false)
     }
     .get-consultation__container{
         width: 100%;
-        height: 100%;
+        height: 50%;
         display: flex;
     }
 }
