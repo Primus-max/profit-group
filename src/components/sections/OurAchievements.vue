@@ -247,7 +247,7 @@ import BaseSection from '@/components/sections/base/BaseSection.vue'
     }
 
     .our-achievements-text {
-        width: 341px;
+        width: 100%;
         height: 155px;
         display: flex;
         flex-direction: row;

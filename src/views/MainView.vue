@@ -6,6 +6,7 @@ import OurAchievements from '@/components/sections/OurAchievements.vue'
 import GetConsultation from '@/components/sections/GetConsultation.vue'
 import Services from '@/components/sections/Services.vue'
 import OurAdvantages from '@/components/sections/OurAdvantages.vue'
+import Media from '@/components/sections/Media.vue'
 </script>
 
 <template>
@@ -26,6 +27,7 @@ import OurAdvantages from '@/components/sections/OurAdvantages.vue'
       <GetConsultation />
       <Services />
       <OurAdvantages/>
+      <Media/>
     </main>
     <footer>
 
