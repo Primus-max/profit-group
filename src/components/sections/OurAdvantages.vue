@@ -1,5 +1,5 @@
 <template>
-    <BaseSection background="var(--color-white)" :z-index="4" has-radius>
+    <BaseSection background="var(--color-white)" height="152vh" :z-index="6" has-radius>
             <div class="advantages_container">
                 <div class="advantages_header">
                     <h2 class="advantages_title"> НАШИ ПРЕИМУЩЕСТВА</h2>

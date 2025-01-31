@@ -1,5 +1,5 @@
 <template>
-    <BaseSection background="var(--color-gray3)" :z-index="4" :height="`${heightServices}+px`" has-radius>
+    <BaseSection background="var(--color-gray3)" :z-index="5" :height="`${heightServices}+px`" has-radius>
         <div class="services__container">
             <div class="services__header">
                 <h2 class="services__title">Услуги</h2>

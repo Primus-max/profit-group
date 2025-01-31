@@ -1,5 +1,5 @@
 <template>
-  <BaseSection 
+  <BaseSection id="BaseSectionId"
     background="var(--color-white)" 
     :z-index="2"
     has-radius
@@ -14,6 +14,11 @@
 
 <script setup>
 import BaseSection from '@/components/sections/base/BaseSection.vue'
+import { onMounted } from 'vue';
+onMounted(()=>{
+let baseSection = window.getElementById('BaseSectionId')   
+console.log(baseSection)
+})
 </script>
 
 <style scoped>
