@@ -53,12 +53,14 @@ defineProps({
 
 .base-section__container {
   width: 92%;
+  height: 100%;
   /* padding: 1rem; */
   margin: 0 auto;
 }
 
 .base-section__content {
   width: 100%;
+  height: 100%;
   margin: 0 auto;
   text-align: center;
 }

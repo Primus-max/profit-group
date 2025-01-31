@@ -5,6 +5,7 @@ import Banner from '@/components/sections/Banner.vue'
 import OurAchievements from '@/components/sections/OurAchievements.vue'
 import GetConsultation from '@/components/sections/GetConsultation.vue'
 import Services from '@/components/sections/Services.vue'
+import OurAdvantages from '@/components/sections/OurAdvantages.vue'
 </script>
 
 <template>
@@ -24,6 +25,7 @@ import Services from '@/components/sections/Services.vue'
       <OurAchievements />
       <GetConsultation />
       <Services />
+      <OurAdvantages/>
     </main>
     <footer>
 

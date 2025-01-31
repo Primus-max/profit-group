@@ -4,7 +4,7 @@
             <div class="get-consultation__header">
                 <h2 class="get-consultation__title">Получитe консультацию</h2>
                 <p class="get-consultation__description">
-                    Укажите свои контактные данные, и наши специалисты свяжутся с Вамии в ближайшее время
+                    Укажите свои контактные данные, и наши специалисты свяжутся с Вами в ближайшее время
                 </p>
             </div>
             <div class="get-consultation__content">
@@ -14,7 +14,8 @@
                         <input type="text" placeholder="Ваше имя" class="form-input">
                         </div>
                         <div class="form-group">
-                        <input type="tel" placeholder="Ваш телефон" class="form-input">
+                        <input type="number"  placeholder="+7 (999)999-99-99" class="form-input"   >
+                          
                         </div>
                         <Checkbox class="Checkbox" v-model="isChecked" text="Я соглашаюсь на обработку персональных данных и принимаю условия политики конфиденциальности" />
                         <button type="submit" @click.prevent class="form-submit">Получить консультацию</button>
@@ -79,6 +80,7 @@ const isChecked = ref(false)
     gap: 1.5rem;
 }
 
+
 .form-group {
     width: 100%;
 }
@@ -93,6 +95,12 @@ const isChecked = ref(false)
     color: var(--color-black);
 }
 
+.background_img_input{
+   background-image: url(src\components\icons\flag.png);
+    padding-left: 35px;
+    width: 20px;
+    height: 20px;
+}
 .form-textarea {
     min-height: 120px;
     resize: vertical;
@@ -121,12 +129,19 @@ const isChecked = ref(false)
     text-align: left;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) and (min-width:650px) and (orientation:landscape){
     .get-consultation__title {
         font-size: 3.25rem;
     }
+    .get-consultation__container{
+        width: 100% ;
+        height: 68%;
+        display: flex;
+    }
 }
 
+
+/* дексктоп */
 @media (min-width: 1024px) {
     .get-consultation__content{
         width: 100%;
@@ -141,11 +156,12 @@ const isChecked = ref(false)
         display: flex;
         text-align: left;
         
+        
     
     }
     .get-consultation__form{
-        width: 100%;
-        padding-top: 50px;
+        width: 90%;
+        padding-top:70px;
         padding-inline: 10px;
         padding-block-end: 50px;
         display: flex;
@@ -164,13 +180,16 @@ const isChecked = ref(false)
     }
 
     .get-consultation__description{
-        width: 67%;
-        font-size: 1.2rem;
-        font-weight:var(--fw-light)
+        width: 50%;
+        height: 100%;
+        text-align:start;
+        font-size: 1rem;
+        font-weight: var(--fw-light);
+        
     }
     .get-consultation__container{
         width: 100%;
-        height: 100%;
+        height: 50%;
         display: flex;
     }
 }

@@ -1,6 +1,8 @@
 <template>
   <BaseSection background="var(--color-gray2)" :z-index="1">
+    <div class="baner-info">
     <h1 class="banner__title">Profit GROUP</h1>
+    </div>
   </BaseSection>
 </template>
 
@@ -9,6 +11,14 @@ import BaseSection from '@/components/sections/base/BaseSection.vue'
 </script>
 
 <style scoped>
+.baner-info{
+  width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .banner__title {
   font-size: 2.5rem;
   font-weight: var(--fw-bold);

@@ -33,6 +33,7 @@ const toggle = () => {
 
 <style scoped>
 .service {
+    display: flex;
     padding: 1.5rem;
     background: var(--color-white);
     border-radius: 8px;
@@ -41,9 +42,16 @@ const toggle = () => {
 }
 
 .service__header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.service_toggle_conteiner{
+    width: 50px;
+    display: flex;
+
 }
 
 .service__title {
@@ -56,11 +64,11 @@ const toggle = () => {
 }
 
 .service__toggle {
-    width: 48px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     padding: 16px;
     position: relative;
-    border-radius: 20px;
+    border-radius: 21px;
     background: var(--color-blue);
 }
 
@@ -87,6 +95,7 @@ const toggle = () => {
 }
 
 .service--active .plus-icon::after {
+position: fixed;
     transform: rotate(0);
 }
 
