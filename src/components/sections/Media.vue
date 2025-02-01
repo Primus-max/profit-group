@@ -628,7 +628,7 @@ video {
 
     .media {
         padding: 1.5rem;
-        background: var(--color-white);
+        background: var(--color-white);        
         border-radius: 8px;
         cursor: pointer;
         transition: all 0.3s ease;
