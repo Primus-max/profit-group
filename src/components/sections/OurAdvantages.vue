@@ -4,9 +4,9 @@
             <div class="advantages_header">
                 <h2 class="advantages_title"> НАШИ ПРЕИМУЩЕСТВА</h2>
             </div>
-            <div v-for="advanatage in infos" :key="id">
-                <Advantage :info="advanatage">
-                    <FolderIcon :color="'white'" />
+            <div v-for="(advanatage, index) in infos" :key="advanatage.id" >
+                <Advantage :info="advanatage" :class="index % 2 === 0 ? 'blue_background' : 'black_background'">
+                    <component :is="advanatage.icon" :color="'white'"/>
                 </Advantage>
             </div>
             <!-- <div class="legal_services_conteiner">
@@ -60,27 +60,45 @@
 </template>
 
 <script setup>
-import BaseSection from '@/components/sections/base/BaseSection.vue'
-import FolderIcon from '@/components/icons/FolderIcon.vue'
-import Gavelicon from '@/components/icons/GavelIcon.vue'
-import Scalesicon from '@/components/icons/ScalesIcon.vue'
-import Shieldicon from '@/components/icons/ShieldIcon.vue'
-import StarCrownicon from '@/components/icons/StarCrownIcon.vue'
-import Advantage from '@/components/Advantage.vue'
-
+import Advantage from '@/components/Advantage.vue';
+import FolderIcon from '@/components/icons/FolderIcon.vue';
+import Gavelicon from '@/components/icons/GavelIcon.vue';
+import Scalesicon from '@/components/icons/ScalesIcon.vue';
+import Shieldicon from '@/components/icons/ShieldIcon.vue';
+import StarCrownicon from '@/components/icons/StarCrownIcon.vue';
+import BaseSection from '@/components/sections/base/BaseSection.vue';
 
 const infos = [
     {
         id: 0,
         title: 'ПОЛНЫЙ СПЕКТР ЮРИДИЧЕСКИХ УСЛУГ',
         description: "Мы предлагаем комплексные юридические услуги, специализируясь на бизнесе, недвижимости и автомобильном праве",
-        icon: () =>  FolderIcon.vue
+        icon: FolderIcon
     },
     {
         id: 1,
         title: 'ПОДТВЕРЖДЕННЫЙ ПОСЛУЖНОЙ СПИСОК',
-        description: "Мы обеспечиваем клиентам значительные возмещения в спорах, связанных с недвижимостью и страхованием"
+        description: "Мы обеспечиваем клиентам значительные возмещения в спорах, связанных с недвижимостью и страхованием",
+        icon: StarCrownicon
     },
+    {
+        id: 2,
+        title: 'СПЕЦИАЛИЗИРОВАННАЯ ЭКСПЕРТИЗА',
+        description: "Мы решаем сложные юридические вопросы на рынках, в строительстве и интеллектуальной собственности",
+        icon: Gavelicon
+    },
+    {
+        id: 3,
+        title: 'КЛИЕНТООРИЕНТИРОВАННЫЙ ПОДХОД',
+        description: "Мы стремимся к Вашему успеху, оказывая индивидуальную поддержку и достигая значимых результатов",
+        icon: Scalesicon
+    },
+    {
+        id: 4,
+        title: 'ОТКРЫТОЕ И ЧЕСТНОЕ ЦЕНООБРАЗОВАНИЕ',
+        description: "Мы верим в полную прозрачность: Вы не столкнетесь с какими-либо неожиданными сборами",
+        icon: Shieldicon
+    }
 ]
 </script>
 
@@ -227,7 +245,13 @@ const infos = [
     display: flex;
 }
 
+.black_background {
+    background-color: var(--color-black);
+}
 
+.blue_background {
+    background-color: var(--color-blue);
+}
 
 /* для таблетки */
 @media (min-width: 600px) and (max-width:1024px) {
