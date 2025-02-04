@@ -5,7 +5,7 @@
             <p class="description">{{ info.description }}</p>
         </div>
         <div class="icon">
-            <slot></slot>
+            <slot ></slot>
         </div>
     </div>
 </template>

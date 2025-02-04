@@ -36,11 +36,11 @@ import Services from '@/components/sections/Services.vue';
 
 <style lang="css" scoped>
 .main-view {
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 96%;
-  margin: 0 auto;
+  flex-direction: column;  
+  align-items: center;
 }
 
 
@@ -58,7 +58,7 @@ header {
 
 main {
   flex: 1;
-  width: 92%;
+  width: 100%;
   margin: 0 auto;
   padding-top: 2rem;
 }

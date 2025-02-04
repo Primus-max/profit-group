@@ -1,13 +1,13 @@
 <template>
   <BaseSection background="var(--color-gray2)" :z-index="1">
     <div class="baner-info">
-    <h1 class="banner__title">Profit GROUP</h1>
+    <h1 class="banner__title"><span style="color: var(--color-black);">Profit</span> GROUP</h1>
     </div>
   </BaseSection>
 </template>
 
 <script setup>
-import BaseSection from '@/components/sections/base/BaseSection.vue'
+import BaseSection from '@/components/sections/base/BaseSection.vue';
 </script>
 
 <style scoped>

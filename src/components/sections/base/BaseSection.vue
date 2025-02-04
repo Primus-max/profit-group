@@ -53,10 +53,8 @@ defineProps({
 
 .base-section__content {
   width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
+  display: flex; 
 }
 
 /* @media (min-width: 768px) {
