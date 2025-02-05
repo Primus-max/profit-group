@@ -1,11 +1,11 @@
 <template>
-    <div class="conteiner">
+    <div class="conteiner card">
         <div class="content">
             <span class="title">{{ info.title }}</span>
             <p class="description">{{ info.description }}</p>
         </div>
         <div class="icon">
-            <slot></slot>
+            <slot ></slot>
         </div>
     </div>
 </template>
@@ -21,7 +21,7 @@ const props = defineProps({
 
 <style lang="css" scoped>
 .conteiner {
-    width: 350px;
+    /* width: 350px; */
     height: 190px;
     /* margin-block: 10px; */
     display: flex;

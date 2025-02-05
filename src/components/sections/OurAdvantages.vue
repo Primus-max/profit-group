@@ -6,11 +6,12 @@
 
             <div class="advantages_content">
                 <div v-for="(advanatage, index) in infos" :key="advanatage.id">
-                    <Advantage :info="advanatage" :class="index % 2 === 0 ? 'blue_background' : 'black_background'">
-                        <component :is="advanatage.icon" :color="'white'" width="60px" height="60px" />
+                    <Advantage :info="advanatage" :class="index % 2 === 0 ? 'blue_background' : 'black_background'" >
+                        <component :is="advanatage.icon" :color="colorIcon" width="60px" height="60px" />
                     </Advantage>
                 </div>
             </div>
+
         </div>
    </BaseSection>
 </template>
@@ -28,6 +29,8 @@ import Scalesicon from '@/components/icons/ScalesIcon.vue';
 import Shieldicon from '@/components/icons/ShieldIcon.vue';
 import StarCrownicon from '@/components/icons/StarCrownIcon.vue';
 import BaseSection from '@/components/sections/base/BaseSection.vue';
+
+const colorIcon = 'white';
 
 const dynamicHeight = computed(() => {
     const width = window.innerWidth;

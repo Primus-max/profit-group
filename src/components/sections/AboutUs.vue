@@ -1,42 +1,59 @@
 <template>
-  <BaseSection 
-    background="var(--color-white)" 
-    :z-index="2"
-    has-radius
-  >
-    <h2 class="about-us__title">О НАС </h2>
-    <p class="about-us__description">
-      Молодая и прогрессивная компания, образованная несколькими партнерами – практиками, имеющими многолетний опыт работы в государственных органах на руководящих должностях, в судебных органах и крупных корпорациях и решения самых разнообразных юридических, налоговых, финансовых и управленческих задач внутри крупнейших российских и зарубежных компаний: налоговые споры и консультирование, юридическая экспертиза договоров, разработка положений и регламентов, претензионная и судебная работа, банкротство, тендерное сопровождение, аудит, уголовно-правовое консультирование и т.д.
-Знание внутренней специфики  правовой работы поможет решить любой возникший теоретический и практический вопрос.
-    </p>
+  <BaseSection background="var(--color-white)" :z-index="2" :height="dynamicHeight"  has-radius>
+    <div class="about-us__container">
+      <h2 class="about-us__title">О НАС </h2>
+      <p class="about-us__description">
+        Молодая и прогрессивная компания, образованная несколькими партнерами – практиками, имеющими многолетний опыт
+        работы в государственных органах на руководящих должностях, в судебных органах и крупных корпорациях и решения
+        самых разнообразных юридических, налоговых, финансовых и управленческих задач внутри крупнейших российских и
+        зарубежных компаний: налоговые споры и консультирование, юридическая экспертиза договоров, разработка положений
+        и регламентов, претензионная и судебная работа, банкротство, тендерное сопровождение, аудит, уголовно-правовое
+        консультирование и т.д.
+        Знание внутренней специфики правовой работы поможет решить любой возникший теоретический и практический вопрос.
+      </p>
+    </div>
   </BaseSection>
 </template>
 
 <script setup>
-import BaseSection from '@/components/sections/base/BaseSection.vue'
+import { computed } from 'vue';
+import BaseSection from '@/components/sections/base/BaseSection.vue';
+
+const dynamicHeight = computed(() => {
+    const width = window.innerWidth;
+    if (width < 600) {
+        return '600px';
+    } else if (width >= 600 && width < 1024) {
+        return '460px';
+    } else {
+        return '550px';
+    }
+});
 </script>
 
 <style scoped>
+.about-us__container {
+  width: 100%;
+  height: 100%;
+  padding: 10px 24px; 
+  display: flex;
+  flex-direction: column;  
+}
 .about-us__title {
   font-size: 2.5rem;
-  font-weight: var(--fw-light);
-  margin-bottom: 1.5rem;
-  padding-top:50px;
+  font-weight: var(--fw-light);    
   color: var(--color-black);
   text-align: left;
 }
 
+
 .about-us__description {
   font-size: 1rem;
   color: var(--color-gray1);
-  line-height: 1.6;
-  max-width: 95%;
-  height: 100%;
-  margin: 0 auto;
-  text-align: left;
+  line-height: 1.6;  
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width :1020px) {
   .about-us__title {
     font-size: 3.25rem;
   }
@@ -46,13 +63,17 @@ import BaseSection from '@/components/sections/base/BaseSection.vue'
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px)  {
+  .about-us__container {
+    padding: 10px 100px;
+  }
   .about-us__title {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
+
   .about-us__description {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
   }
 }
 </style>
