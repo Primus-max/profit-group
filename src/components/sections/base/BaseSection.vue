@@ -20,19 +20,13 @@ defineProps({
 </script>
 
 <template>
-  <section 
-    class="base-section" 
-    :class="{ 'has-radius': hasRadius }"
-    :style="{
-      background,
-      height,
-      zIndex
-    }"
-  >
-    <div class="base-section__container">
-      <div class="base-section__content">
-        <slot></slot>
-      </div>
+  <section class="base-section" :class="{ 'has-radius': hasRadius }" :style="{
+    background,
+    height,
+    zIndex
+  }">
+    <div class="base-section__content">
+      <slot></slot>
     </div>
   </section>
 </template>
@@ -51,29 +45,27 @@ defineProps({
   border-top-right-radius: 32px;
 }
 
-.base-section__container {
+/* .base-section__container {
   width: 92%;
-  /* padding: 1rem; */
-  margin: 0 auto;
-}
+  height: auto;
+  base-section__container margin: 0 auto;
+} */
 
 .base-section__content {
   width: 100%;
-  margin: 0 auto;
-  text-align: center;
+  height: 100%;
+  display: flex; 
 }
 
-@media (min-width: 768px) {
-  .base-section__container {
-    width: 100%;
+/* @media (min-width: 768px) {
+  .base-section__container {    
     padding: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .base-section__container {
-    width: 100%;
+  .base-section__container {    
     padding: 2rem;
   }
-}
-</style> 
+} */
+</style>

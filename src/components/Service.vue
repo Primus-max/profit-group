@@ -2,6 +2,8 @@
     <div class="service" :class="{ 'service--active': isOpen }" @click="toggle">
         <div class="service__header">
             <h3 class="service__title">{{ service.title }}</h3>
+         </div>   
+         <div class="service_toggle_conteiner">
             <button class="service__toggle">
                 <span class="plus-icon"></span>
             </button>
@@ -31,6 +33,7 @@ const toggle = () => {
 
 <style scoped>
 .service {
+    display: flex;
     padding: 1.5rem;
     background: var(--color-white);
     border-radius: 8px;
@@ -39,23 +42,33 @@ const toggle = () => {
 }
 
 .service__header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.service_toggle_conteiner{
+    width: 50px;
+    display: flex;
+
+}
+
 .service__title {
-    font-size: 1.2rem;
-    font-weight: var(--fw-light);
+    width: 50%;
+    padding-left: 10px;
+    font-size: 1.1rem;
+    text-align: left;
+    font-weight: var(--fw-medium);
     color: var(--color-black);
 }
 
 .service__toggle {
-    width: 24px;
-    height: 24px;
+    width: 42px;
+    height: 42px;
     padding: 16px;
     position: relative;
-    border-radius: 20px;
+    border-radius: 21px;
     background: var(--color-blue);
 }
 
@@ -64,9 +77,9 @@ const toggle = () => {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 16px;
+    width: 19px;
     height: 2px;
-    background: var(--color-black);
+    background: var(--color-white);
     transition: transform 0.3s ease;
 }
 
@@ -82,6 +95,7 @@ const toggle = () => {
 }
 
 .service--active .plus-icon::after {
+position: fixed;
     transform: rotate(0);
 }
 
@@ -91,4 +105,18 @@ const toggle = () => {
     line-height: 1.5;
     color: var(--color-gray);
 }
+
+/* decktop */
+@media  (min-width: 1024px){
+    .service__title {
+    width: 100%;
+    padding-left: 10px;
+    font-size: 1.1rem;
+    text-align: left;
+    font-weight: var(--fw-medium);
+    color: var(--color-black);
+}
+}
+    
+
 </style>

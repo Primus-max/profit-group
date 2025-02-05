@@ -1,10 +1,12 @@
 <script setup>
-import NavBar from '@/components/NavBar.vue'
-import AboutUs from '@/components/sections/AboutUs.vue'
-import Banner from '@/components/sections/Banner.vue'
-import OurAchievements from '@/components/sections/OurAchievements.vue'
-import GetConsultation from '@/components/sections/GetConsultation.vue'
-import Services from '@/components/sections/Services.vue'
+import NavBar from '@/components/NavBar.vue';
+import AboutUs from '@/components/sections/AboutUs.vue';
+import Banner from '@/components/sections/Banner.vue';
+import GetConsultation from '@/components/sections/GetConsultation.vue';
+import Media from '@/components/sections/Media.vue';
+import OurAchievements from '@/components/sections/OurAchievements.vue';
+import OurAdvantages from '@/components/sections/OurAdvantages.vue';
+import Services from '@/components/sections/Services.vue';
 </script>
 
 <template>
@@ -24,6 +26,8 @@ import Services from '@/components/sections/Services.vue'
       <OurAchievements />
       <GetConsultation />
       <Services />
+      <OurAdvantages/>
+      <!-- <Media/>  -->
     </main>
     <footer>
 
@@ -33,13 +37,12 @@ import Services from '@/components/sections/Services.vue'
 
 <style lang="css" scoped>
 .main-view {
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 96%;
-  margin: 0 auto;
+  flex-direction: column;  
+  align-items: center;
 }
-
 
 .main-view__container {
   padding: 0;
@@ -55,7 +58,7 @@ header {
 
 main {
   flex: 1;
-  width: 92%;
+  width: 100%;
   margin: 0 auto;
   padding-top: 2rem;
 }

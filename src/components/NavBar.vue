@@ -10,7 +10,7 @@ const props = defineProps({
 })
 
 const isMenuOpen = ref(false)
-
+const isLogoAnimate = ref(true);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
@@ -19,6 +19,9 @@ const toggleMenu = () => {
 <template>
   <nav class="navbar">
     <div class="navbar__content">
+      <div class="main__logo">
+        <LogoIcon :animate="isLogoAnimate" />
+      </div>
       <!-- Десктопное меню -->
       <ul class="navbar__menu">
         <li v-for="item in menuItems" :key="item.id">
@@ -50,11 +53,16 @@ const toggleMenu = () => {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.main__logo {
+  width: 50px;
+  height: 50px;
+}
+
 .navbar__content {
   width: 92%;
   margin: 0 auto;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
 }
