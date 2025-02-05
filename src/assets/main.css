@@ -19,3 +19,21 @@
     padding: 0;
   }
 }
+
+@media (min-width: 320px) and (max-width: 690px) {
+  .card {
+    width: var(--size-w-card-mobile);
+  }
+}
+
+@media(min-width: 700px){
+  .card{
+    width: var(--size-w-card-tablet);
+  }
+}
+
+@media(min-width: 1920px){
+  .card{
+    width: var(--size-w-card-desktop);
+  }
+}
