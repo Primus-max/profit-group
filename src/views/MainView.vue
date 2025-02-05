@@ -3,6 +3,7 @@ import NavBar from '@/components/NavBar.vue';
 import AboutUs from '@/components/sections/AboutUs.vue';
 import Banner from '@/components/sections/Banner.vue';
 import GetConsultation from '@/components/sections/GetConsultation.vue';
+import Media from '@/components/sections/Media.vue';
 import OurAchievements from '@/components/sections/OurAchievements.vue';
 import OurAdvantages from '@/components/sections/OurAdvantages.vue';
 import Services from '@/components/sections/Services.vue';
@@ -26,7 +27,7 @@ import Services from '@/components/sections/Services.vue';
       <GetConsultation />
       <Services />
       <OurAdvantages/>
-      <!-- <Media/> -->
+      <!-- <Media/>  -->
     </main>
     <footer>
 
@@ -42,7 +43,6 @@ import Services from '@/components/sections/Services.vue';
   flex-direction: column;  
   align-items: center;
 }
-
 
 .main-view__container {
   padding: 0;
