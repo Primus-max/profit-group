@@ -1,5 +1,5 @@
 <template>
-    <BaseSection background="var(--color-white)" :z-index="4" has-radius>
+    <BaseSection background="var(--color-white)" :z-index="4" :height="dynamicHeight" has-radius>
         <div class="get-consultation__container">
             <div class="get-consultation__header">
                 <h2 class="get-consultation__title">Получитe консультацию</h2>
@@ -27,11 +27,21 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 import BaseSection from '@/components/sections/base/BaseSection.vue'
 import Checkbox from '@/components/elemets/CheckBox.vue'
 
+const dynamicHeight = computed(() => {
+    const width = window.innerWidth;
+    if (width < 600) {
+        return '1060px';
+    } else if (width >= 600 && width < 1024) {
+        return '1069px';
+    } else {
+        return '800px';
+    }
+});
 const isChecked = ref(false)
 </script>
 

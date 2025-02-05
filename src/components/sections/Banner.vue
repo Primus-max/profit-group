@@ -1,5 +1,5 @@
 <template>
-  <BaseSection background="var(--color-gray2)" :z-index="1">
+  <BaseSection background="var(--color-gray2)" :height="dynamicHeight" :z-index="1">
     <div class="baner-info">
     <h1 class="banner__title"><span style="color: var(--color-black);">Profit</span> GROUP</h1>
     </div>
@@ -8,6 +8,18 @@
 
 <script setup>
 import BaseSection from '@/components/sections/base/BaseSection.vue';
+import { computed } from 'vue';
+
+const dynamicHeight = computed(() => {
+    const width = window.innerWidth;
+    if (width < 600) {
+        return '1060px';
+    } else if (width >= 600 && width < 1024) {
+        return '1069px';
+    } else {
+        return '800px';
+    }
+});
 </script>
 
 <style scoped>
