@@ -1,5 +1,5 @@
 <template>
-    <BaseSection background="var(--color-white)" height="152vh" :z-index="6" has-radius>
+    <BaseSection background="var(--color-white)" :height="dynamicHeight" :z-index="6" has-radius>
         <div class="advantages_container">
             <div class="advantages_header">
                 <h2 class="advantages_title"> НАШИ ПРЕИМУЩЕСТВА</h2>
@@ -60,6 +60,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import Advantage from '@/components/Advantage.vue';
 import FolderIcon from '@/components/icons/FolderIcon.vue';
 import Gavelicon from '@/components/icons/GavelIcon.vue';
@@ -67,6 +68,17 @@ import Scalesicon from '@/components/icons/ScalesIcon.vue';
 import Shieldicon from '@/components/icons/ShieldIcon.vue';
 import StarCrownicon from '@/components/icons/StarCrownIcon.vue';
 import BaseSection from '@/components/sections/base/BaseSection.vue';
+
+const dynamicHeight = computed(() => {
+    const width = window.innerWidth;
+    if (width < 600) {
+        return '1060px';
+    } else if (width >= 600 && width < 1024) {
+        return '1069px';
+    } else {
+        return '768px';
+    }
+});
 
 const infos = [
     {

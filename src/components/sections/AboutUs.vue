@@ -1,38 +1,46 @@
 <template>
-  <BaseSection id="BaseSectionId"
+  <BaseSection 
     background="var(--color-white)" 
     :z-index="2"
+    :height="'600px'"
     has-radius
   >
-    <h2 class="about-us__title">О НАС </h2>
-    <p class="about-us__description">
+  <div class="container">
+    <h2 class="title">О НАС </h2>
+    <p class="description">
       Молодая и прогрессивная компания, образованная несколькими партнерами – практиками, имеющими многолетний опыт работы в государственных органах на руководящих должностях, в судебных органах и крупных корпорациях и решения самых разнообразных юридических, налоговых, финансовых и управленческих задач внутри крупнейших российских и зарубежных компаний: налоговые споры и консультирование, юридическая экспертиза договоров, разработка положений и регламентов, претензионная и судебная работа, банкротство, тендерное сопровождение, аудит, уголовно-правовое консультирование и т.д.
 Знание внутренней специфики  правовой работы поможет решить любой возникший теоретический и практический вопрос.
     </p>
+  </div>
   </BaseSection>
 </template>
 
 <script setup>
 import BaseSection from '@/components/sections/base/BaseSection.vue'
 import { onMounted } from 'vue';
-onMounted(()=>{
-let baseSection = window.getElementById('BaseSectionId')   
-console.log(baseSection)
-})
+
 </script>
 
 <style scoped>
-.about-us__title {
-  font-size: 2.5rem;
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2.3rem;
   font-weight: var(--fw-light);
-  margin-bottom: 1.5rem;
-  padding-top:50px;
+  padding: 16px 8px;
+
+  /* padding-top:50px; */
   color: var(--color-black);
   text-align: left;
 }
 
-.about-us__description {
-  font-size: 1rem;
+.description {
+  font-size: 1.4  rem;
   color: var(--color-gray1);
   line-height: 1.6;
   max-width: 95%;
@@ -42,22 +50,22 @@ console.log(baseSection)
 }
 
 @media (min-width: 768px) {
-  .about-us__title {
+  /* .title {
     font-size: 3.25rem;
   }
 
-  .about-us__description {
+  .description {
     font-size: 1.125rem;
-  }
+  } */
 }
 
 @media (min-width: 1024px) {
-  .about-us__title {
+  /* .title {
     font-size: 4rem;
   }
 
-  .about-us__description {
+  .description {
     font-size: 1.25rem;
-  }
+  } */
 }
 </style>
