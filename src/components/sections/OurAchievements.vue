@@ -1,41 +1,16 @@
 <template>
-    <BaseSection background="var(--color-gray4)" :z-index="3" has-radius>
-        <div class="our-achievements_conteiner">
+    <BaseSection background="var(--color-gray4)" :z-index="3" :height="dynamicHeight" has-radius>
+        <div class="our-achievements_container">
             <div class="our-achievements_content">
                 <h2 class="our-achievements__title">НАШИ ДОСТИЖЕНИЯ</h2>
-                <div class="our-achievements-text">
-
-                    <div class="floor-1">
-                        <div class="achievements-info">
-                            <div class="info-text"><span class="achievements-info__title">8+</span>
-                                <p class="achievements-info__description">лет на рынке услуг для бизнеса в сфере
-                                    сопровождения торгов</p>
-                            </div>
-                        </div>
-                        <div class="vertical-line"></div>
-                        <div class="achievements-info">
-                            <div class="info-text"><span class="achievements-info__title">100%</span>
-                                <p class="achievements-info__description">необоснованно отклоненных заявок успешно
-                                    обжалуются в ФАС</p>
-                            </div>
-                        </div>
-                    </div>
-                    <hr width="100%" size="3" color="black" class="mobail-achievements__seporator">
-                    <div class="floor-2">
-                        <div class="achievements-info">
-                            <div class="info-text"><span class="achievements-info__title">100%</span>
-                                <p class="achievements-info__description">квалифицированная команда лучших специалистов
-                                </p>
-                            </div>
-                        </div>
-                        <div class="vertical-line"></div>
-                        <div class="achievements-info">
-                            <div class="info-text"> <span class="achievements-info__title">МЫ</span>
-                                <p class="achievements-info__description">работаем со всеми банками по направлению
-                                    банковских гарантий и займов</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="our-achievements-wrapper">
+                    <Achievement
+                        v-for="(achievement, index) in achievements"
+                        :key="index"
+                        :value="achievement.value"
+                        :description="achievement.description"
+                        class="achievement-item"
+                    />
                 </div>
             </div>
         </div>
@@ -43,254 +18,144 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import BaseSection from '@/components/sections/base/BaseSection.vue'
+import Achievement from '@/components/Achievement.vue'
+
+const dynamicHeight = computed(() => {
+    const width = window.innerWidth;
+    if (width < 600) {
+        return '760px';
+    } else if (width >= 600 && width < 1024) {
+        return '500px';
+    } else if (width >= 1024 && width < 1440) {
+        return '700px';
+    } else {
+        return '680px';
+    }
+});
+
+const achievements = [
+    {
+        value: '8+',
+        description: 'лет на рынке услуг для бизнеса в сфере сопровождения торгов'
+    },
+    {
+        value: '100',
+        description: 'необоснованно отклоненных заявок успешно обжалуются в ФАС'
+    },
+    {
+        value: '100',
+        description: 'квалифицированная команда лучших специалистов'
+    },
+    {
+        value: 'МЫ',
+        description: 'работаем со всеми банками по направлению банковских гарантий и займов'
+    }
+]
 </script>
 
 <style scoped>
-/* мобильная */
-
-.our-achievements_conteiner {
+.our-achievements_container {
     width: 100%;
-    height: 100%;
+    padding: 2rem 0;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-
-.our-achievements__title {
-    width: 50%;
-    line-height: 40px;
-    font-size: 2.5rem;
-    font-weight: var(--fw-medium);
-    color: var(--color-black);
-    text-align: left;
-    padding-bottom: 30px;
-
-}
-
-.our-achievements-text {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-}
-
-.floor-1 {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.floor-2 {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.achievements-info {
-    width: 150px;
-    height: 210px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-
-}
-
-.achievements-info__description {
-    height: 100px;
-    width: 200px;
-    padding: 0 8px;
-    font-size: 0.9rem;
-    line-height: 1rem;
-    text-justify: newspaper;
-
-
-}
-
-.achievements-info__title {
-    font-size: 3rem;
-    font-weight: var(--fw-bold);
-    letter-spacing: 1px;
-}
-
-.vertical-line {
-    height: 185px;
-    margin-top: 14px;
-    border: 1px solid black;
-}
-
-.mobail-achievements__seporator {
-    display: block;
+    align-items: center;
 }
 
 .our-achievements_content {
-    height: 50%;
-    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.our-achievements__title {
+    font-size: 2.5rem;
+    font-weight: var(--fw-medium);
+    color: var(--color-black);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.our-achievements-wrapper {
     display: flex;
-    flex-direction: column;
-
-
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
 }
 
+.achievement-item {
+    flex: 0 1 calc(50% - 1rem);
+    position: relative;
+    min-width: 140px;
+}
 
-/* планшет */
-@media (min-width: 600px) and ( max-width:1024px) {
+/* Вертикальная линия */
+.achievement-item:nth-child(odd)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -1rem;
+    width: 1px;
+    height: 100%;
+    background-color: black;
+}
 
-    .our-achievements__title {
-        width: 100%;
-        line-height: 40px;
-        font-size: 2.5rem;
-        font-weight: var(--fw-medium);
-        color: var(--color-black);
-        text-align: left;
-        padding-bottom: 30px;
+/* Горизонтальная линия */
+.achievement-item:nth-child(-n+2)::before {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: black;
+}
 
+@media (min-width: 600px) {
+    .achievement-item {
+        flex: 0 1 calc(50% - 1rem);
     }
 
-    .achievements-info__description {
-    height: 50px;
-    width: 150px;
-    font-size: 0.8rem;
-    line-height: 0.8rem;
-    text-justify:initial;
-}
-
-    .mobail-achievements__seporator {
+    .achievement-item:nth-child(-n+2)::before {
         display: none;
     }
 
-    .vertical-line {
-        display: none;
-    }
-
-    .our-achievements-text {
-        width: 100%;
-        height: 15%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-end;
-    }
-
-    .our-achievements_conteiner {
-        width: 100%;
+    .achievement-item:not(:last-child)::after {
+        right: -1rem;
+        top: 0;
+        width: 1px;
         height: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        flex-direction: row;
-        align-content: flex-end;
+        left: auto;
     }
-
-    .our-achievements_content {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding-bottom: 80px;
-    }
-
-    .info-text{
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 20px;
-        border-right: 1px solid black;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: nowrap;
-        text-align: center;
-    } 
-    .info-text:not(:last-child) {
-        border-right:0px solid;
-    }
-    .achievements-info {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-}
 }
 
-
-
-
-
-
-
-
-/* десктоп */
 @media (min-width: 1024px) {
     .our-achievements__title {
-        width: 100%;
-        line-height: 40px;
         font-size: 4rem;
-        font-weight: var(--fw-medium);
-        color: var(--color-black);
-        text-align: left;
-        padding-bottom: 30px;
-
     }
 
-    .mobail-achievements__seporator {
+    .achievement-item {
+        flex: 0 1 calc(25% - 1.5rem);
+    }
+
+    /* Сброс стилей для разделителей */
+    .achievement-item:nth-child(-n+2)::before,
+    .achievement-item:nth-child(odd)::after {
         display: none;
     }
 
-    .vertical-line {
-        display: none;
-    }
-
-    .our-achievements-text {
-        width: 341px;
-        height: 155px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: flex-end;
-       
-    }
-
-    .our-achievements_conteiner {
-        width: 100%;
+    /* Добавление вертикальных линий */
+    .achievement-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -1rem;
+        width: 1px;
         height: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        flex-direction: row;
-        align-content: flex-end;
+        background-color: black;
+        display: block;
     }
-
-    .our-achievements_content {
-        height: 50%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        padding-top: 40px;
-    }
-
-    .info-text{
-        width: 341px;
-        height: 155px;
-        display: flex;
-        flex-direction: column;
-        border-right: 1px solid black ;
-        justify-content: space-around;
-        align-items: center;
-    } 
-    .achievements-info {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-}
 }
 </style>

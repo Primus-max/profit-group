@@ -22,9 +22,11 @@ import BaseSection from '@/components/sections/base/BaseSection.vue';
 const dynamicHeight = computed(() => {
     const width = window.innerWidth;
     if (width < 600) {
-        return '600px';
+        return '650px';
     } else if (width >= 600 && width < 1024) {
         return '460px';
+    } else if (width >= 1024 && width < 1440) {
+        return '700px';
     } else {
         return '550px';
     }
@@ -41,7 +43,7 @@ const dynamicHeight = computed(() => {
 }
 .about-us__title {
   font-size: 2.5rem;
-  font-weight: var(--fw-light);    
+  font-weight: var(--fw-bold);    
   color: var(--color-black);
   text-align: left;
 }

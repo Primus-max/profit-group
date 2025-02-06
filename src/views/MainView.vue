@@ -26,8 +26,8 @@ import Services from '@/components/sections/Services.vue';
       <OurAchievements />
       <GetConsultation />
       <Services />
-      <OurAdvantages/>
-      <!-- <Media/>  -->
+      <!-- <OurAdvantages/> -->
+      <Media/> 
     </main>
     <footer>
 

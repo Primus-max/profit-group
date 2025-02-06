@@ -14,7 +14,7 @@
                         <input type="text" placeholder="Ваше имя" class="form-input">
                     </div>
                     <div class="form-group">
-                        <input type="number" placeholder="+7 (999)999-99-99" class="form-input">
+                        <input type="tel" placeholder="+7 (999)999-99-99" class="form-input">
 
                     </div>
                     <Checkbox class="Checkbox" v-model="isChecked"
@@ -40,26 +40,24 @@ const dynamicHeight = computed(() => {
     } else if (width >= 600 && width < 1024) {
         return '500px';
     } else {
-        return '800px';
+        return '700px';
     }
 });
 const isChecked = ref(false)
 </script>
 
 <style scoped>
-.wrapper{
+.wrapper {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
-}
-.base-section__container {
-    padding: 0 !important;
+    justify-content: center;
 }
 
 .get-consultation__container {
-    width: 400px;
-    height: 100%;
+    width: 90%;
+    max-width: 400px;
     padding: 2rem;
     background: var(--color-blue);
     border-radius: 24px;
@@ -67,30 +65,25 @@ const isChecked = ref(false)
 }
 
 .get-consultation__header {
-    width: 400px;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
     align-items: center;
+    text-align: center;
 }
 
 .get-consultation__title {
-    height: 60px;
-    width: 300px;
-    line-height: 33.6px;
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
+    font-size: clamp(2rem, 5vw, 2.6rem);
     font-weight: var(--fw-bold);
-    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
 }
 
 .get-consultation__description {
-    line-height: 19.04px;
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    line-height: 1.4;
     margin-bottom: 2rem;
-    font-size: 1.1rem;
-    text-align: center;
-    width: 300px;
     font-weight: var(--fw-medium);
+    max-width: 300px;
 }
 
 .get-consultation__content {
@@ -103,7 +96,6 @@ const isChecked = ref(false)
     flex-direction: column;
     gap: 1.5rem;
 }
-
 
 .form-group {
     width: 100%;
@@ -132,15 +124,15 @@ const isChecked = ref(false)
 }
 
 .form-submit {
-    width: 245px;
+    width: 100%;
+    max-width: 245px;
     height: 69px;
-    padding: 1rem 2rem;
-    background: var(--color-blue);
+    padding: 1rem;
+    background: var(--color-black);
     color: var(--color-white);
     border-radius: 8px;
     font-size: 1rem;
     font-weight: var(--fw-medium);
-    background: var(--color-black);
     transition: background-color 0.7s ease;
     align-self: center;
 }
@@ -155,72 +147,52 @@ const isChecked = ref(false)
     text-align: left;
 }
 
-@media screen and (min-width: 768px) and (min-width:650px) and (orientation:landscape) {
-    .get-consultation__title {
-        font-size: 3.25rem;
-    }
-
+/* Планшет */
+@media (min-width: 768px) {
     .get-consultation__container {
-        width: 400px;
-        height: 68%;
-        display: flex;
+        width: 600px;
+        max-width: 90%;
+        height: auto;
+        padding: 3rem;
     }
 }
 
-
-/* дексктоп */
+/* Десктоп */
 @media (min-width: 1024px) {
-    .get-consultation__content {
-        width: 100%;
-        height: 100%;
+    .get-consultation__container {
+        width: 80%;
+        max-width: 1200px;
+        height: auto;
         display: flex;
+        gap: 1rem;
     }
 
     .get-consultation__header {
-        height: 100%;
-        width: 50%;
-        padding-top: 70px;
-        padding-left: 90px;
-        display: flex;
+        flex: 1;
+        align-items: flex-start;
         text-align: left;
-
-
-
+        padding-right: 2rem;
     }
 
-    .get-consultation__form {
-        width: 90%;
-        padding-top: 70px;
-        padding-inline: 10px;
-        padding-block-end: 50px;
-        display: flex;
-        font-size: 1rem;
-    }
-
-    .form-input {
-        height: 90%;
+    .get-consultation__content {
+        flex: 1;
     }
 
     .get-consultation__title {
-        width: 40%;
-        font-size: 2.6rem;
-        font-weight: var(--fw-light);
-        text-align: left;
+        max-width: 400px;
     }
 
     .get-consultation__description {
-        width: 50%;
-        height: 100%;
-        text-align: start;
-        font-size: 1rem;
-        font-weight: var(--fw-light);
-
+        max-width: 400px;
     }
 
-    .get-consultation__container {
-        width: 600px;
-        height: 50%;
-        display: flex;
+    .get-consultation__form {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .form-input {
+        height: 56px;
     }
 }
 </style>
