@@ -49,11 +49,6 @@ const dynamicHeight = computed(() => {
     } else {
         return '900px';
     }
-
-
-
-
-
 });
 
 const infos = [
