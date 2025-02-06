@@ -1,8 +1,9 @@
 <template>
-    <BaseSection background="var(--color-white)" :height="dynamicHeight" :z-index="6" has-radius>
+    <BaseSection background="var(--color-gray1)" :height="dynamicHeight" :z-index="6" has-radius>
         <div class="advantages_container">
             <h2 class="advantages_header">НАШИ ПРЕИМУЩЕСТВА</h2>
             <div class="advantages_content">
+
                 <div v-for="(advantage, index) in infos" :key="advantage.id">
                     <Advantage 
                         :info="advantage" 
@@ -40,12 +41,19 @@ const colorIcon = 'white';
 const dynamicHeight = computed(() => {
     const width = window.innerWidth;
     if (width < 600) {
-        return '1060px';
-    } else if (width >= 600 && width < 1024) {
-        return '1069px';
+        return '1320px';
+    } else if (width >= 600 && width < 768) {
+        return '1100px';
+    } else if (width >= 768 && width < 1024) {
+        return '1100px';
     } else {
-        return '1400px';
+        return '900px';
     }
+
+
+
+
+
 });
 
 const infos = [
@@ -84,34 +92,35 @@ const infos = [
 
 <style scoped>
 .advantages_container {
-    width: 100%;
-    height: 100%;
+    width: 100%;    
+    padding: 2rem 1rem;   
     display: flex;
-    flex-direction: column;
-    color: white;
+    flex-direction: column;    
 }
 
 .advantages_content {
     width: 100%;
     height: 100%;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    align-content: flex-start;
+    gap: 20px;
 }
 
 .advantages_header {
-    width: 100%;
-    margin-top: 30px;
+    width: 100%;      
+    margin-bottom: 2rem;
     display: flex;
-    font-weight: var(--fw-medium);
+    font-weight: var(--fw-bold);
     text-align: left;
     line-height: 2rem;
     font-size: 1.6rem;
-    color: var(--color-black);
+    color: var(--color-white);
 }
+
 
 .black_background {
     background-color: var(--color-black);
@@ -122,19 +131,10 @@ const infos = [
 }
 
 /* Планшет */
-@media (min-width: 768px) {
-    .advantages_header {
-        margin-top: 64px;
-        height: 100px;
-        line-height: 2.4rem;
-        font-size: 2rem;
-        align-items: center;
-    }
+/* @media (min-width: 768px) {    
 
-    .advantages_content {
-        gap: 20px;
-    }
-}
+   
+} */
 
 /* Десктоп */
 @media (min-width: 1024px) {

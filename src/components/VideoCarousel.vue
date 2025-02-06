@@ -25,12 +25,16 @@
                 <span class="arrow-right"></span>
             </button>
         </div>
-        <hr class="separator">
+        <!-- <hr class="separator"> -->
     </div>
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import {
+  computed,
+  onMounted,
+  ref,
+} from 'vue';
 
 const props = defineProps({
     title: {

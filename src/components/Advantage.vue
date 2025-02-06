@@ -1,8 +1,9 @@
 <template>
-    <div class="container">
+    <div class="container card">
         <div class="content">
             <h3 class="title">{{ info.title }}</h3>
             <p class="description">{{ info.description }}</p>
+
         </div>
         <div class="icon">
             <slot></slot>
@@ -20,12 +21,12 @@ const props = defineProps({
 </script>
 
 <style scoped>
-.container {
-    height: 190px;
-    display: flex;
-    flex-direction: row-reverse;
+.container {    
+    height: 210px;
+    display: flex;    
     border-radius: 20px;
 }
+
 
 .content {
     width: 100%;
@@ -63,11 +64,12 @@ const props = defineProps({
 }
 
 /* Планшет */
-@media (min-width: 768px) {
+@media (min-width: 600px) {
     .container {
-        width: 586px;
-        height: 235px;
+        width: 100%;
+        height: 160px;
     }
+    
 
     .icon {
         width: 80px;
@@ -85,9 +87,10 @@ const props = defineProps({
 }
 
 /* Большие экраны */
-@media (min-width: 1920px) {
+@media (min-width: 1024px) {
     .container {
-        width: 600px;
+        height: 180px;
+        width: 560px;        
     }
 }
 </style>

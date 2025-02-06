@@ -17,18 +17,19 @@
 
 <script setup>
 import { computed } from 'vue';
+
 import BaseSection from '@/components/sections/base/BaseSection.vue';
 
 const dynamicHeight = computed(() => {
     const width = window.innerWidth;
     if (width < 600) {
         return '650px';
-    } else if (width >= 600 && width < 1024) {
-        return '460px';
-    } else if (width >= 1024 && width < 1440) {
-        return '700px';
+    } else if (width >= 600 && width < 768) {
+        return '400px';
+    } else if (width >= 768 && width < 1024) {
+        return '540px';
     } else {
-        return '550px';
+        return '520px';
     }
 });
 </script>

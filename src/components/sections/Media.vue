@@ -15,7 +15,11 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import {
+  computed,
+  ref,
+} from 'vue';
+
 import BaseSection from '@/components/sections/base/BaseSection.vue';
 import VideoCarousel from '@/components/VideoCarousel.vue';
 
@@ -23,11 +27,14 @@ const dynamicHeight = computed(() => {
     const width = window.innerWidth;
     if (width < 600) {
         return '1100px';
-    } else if (width >= 600 && width < 1024) {
-        return '1069px';
+    } else if (width >= 600 && width < 768) {
+        return '1580px';
+    } else if (width >= 768 && width < 1024) {
+        return '1545px';
     } else {
         return '2600px';
     }
+
 });
 
 const podcasts = ref([

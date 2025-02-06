@@ -19,20 +19,22 @@
 
 <script setup>
 import { computed } from 'vue';
-import BaseSection from '@/components/sections/base/BaseSection.vue'
-import Achievement from '@/components/Achievement.vue'
+
+import Achievement from '@/components/Achievement.vue';
+import BaseSection from '@/components/sections/base/BaseSection.vue';
 
 const dynamicHeight = computed(() => {
     const width = window.innerWidth;
     if (width < 600) {
         return '760px';
-    } else if (width >= 600 && width < 1024) {
+    } else if (width >= 600 && width < 768) {
         return '500px';
-    } else if (width >= 1024 && width < 1440) {
+    } else if (width >= 768 && width < 1024) {
         return '700px';
     } else {
         return '680px';
     }
+
 });
 
 const achievements = [
