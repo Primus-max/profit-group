@@ -46,7 +46,7 @@ const dynamicHeight = computed(() => {
     } else if (width >= 600 && width < 768) {
         return '1000px';
     } else if (width >= 600 && width < 1024) {
-        return '1200px';
+        return '1064px';
     } else {
         return '700px';
     }

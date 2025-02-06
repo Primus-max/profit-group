@@ -2,6 +2,7 @@
 import NavBar from '@/components/NavBar.vue';
 import AboutUs from '@/components/sections/AboutUs.vue';
 import Banner from '@/components/sections/Banner.vue';
+import Basement from '@/components/sections/Basement.vue';
 import GetConsultation from '@/components/sections/GetConsultation.vue';
 import GetLegalAdvice from '@/components/sections/GetLegalAdvice.vue';
 import Media from '@/components/sections/Media.vue';
@@ -9,6 +10,7 @@ import OurAchievements from '@/components/sections/OurAchievements.vue';
 import OurAdvantages from '@/components/sections/OurAdvantages.vue';
 import Services from '@/components/sections/Services.vue';
 </script>
+
 
 <template>
   <div class="main-view">
@@ -28,15 +30,14 @@ import Services from '@/components/sections/Services.vue';
       <GetConsultation />
       <Services />
       <Media />
-      <OurAdvantages />      
+      <OurAdvantages />
       <GetLegalAdvice />
-
-    </main>
-    <footer>
-
-    </footer>
+    </main>    
+      <Basement />    
   </div>
 </template>
+
+
 
 <style lang="css" scoped>
 .main-view {
