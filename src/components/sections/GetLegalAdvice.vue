@@ -42,13 +42,13 @@ import BaseSection from '@/components/sections/base/BaseSection.vue';
 const dynamicHeight = computed(() => {
     const width = window.innerWidth;
     if (width < 600) {
-        return '1000px';
+        return '103 0px';
     } else if (width >= 600 && width < 768) {
         return '1000px';
     } else if (width >= 600 && width < 1024) {
         return '1064px';
     } else {
-        return '700px';
+        return '1100px';
     }
 });
 const isChecked = ref(false)
@@ -188,23 +188,22 @@ const isChecked = ref(false)
     }
 
     .get-consultation__header {
-        flex: 1;
-        align-items: flex-start;
-        text-align: left;
+        width: 100%;               
         padding-right: 2rem;
     }
 
-    .get-consultation__content {
+    /* .get-consultation__content {
         flex: 1;
-    }
+    } */
 
     .get-consultation__title {
-        max-width: 400px;
+        max-width: 800px;
     }
 
     .get-consultation__description {
-        max-width: 400px;
+       width: 800px;
     }
+
 
     .get-consultation__form {
         width: 100%;
