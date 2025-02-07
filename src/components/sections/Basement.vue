@@ -6,8 +6,8 @@
                 <button class="call-button" @click="startCall">{{ phoneNumber }}</button>
             </div>
             <div class="footer-bottom">
-                <div class="contact-info">
-                    <p class="email">email@example.com</p>
+                <p class="email">email@example.com</p>
+                <div class="contact-info">                    
                     <p class="address">г. Москва, ул. Старокачаловская, д. 1, корпус 1</p>
                     <p class="inn">ИНН: 9724206002</p>
                     <p class="ogrn">ОГРН: 124770069047</p>
@@ -46,7 +46,7 @@ const dynamicHeight = computed(() => {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;    
+    padding: clamp(1rem, 2vw, 2rem);    
 }
 
 .footer-top {
@@ -66,6 +66,7 @@ const dynamicHeight = computed(() => {
 }
 
 .footer-bottom {    
+    width: 100%;
     display: flex;
     flex-direction: column; 
 }
@@ -90,8 +91,22 @@ const dynamicHeight = computed(() => {
 
 
 @media (min-width: 600px) {
+    .footer{
+        padding: 2rem;
+    }
+
    .contact-info{    
     height: 120px;
    }
+
+   .footer-bottom{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .email{
+        order: 2;
+        margin-bottom: 0;     
+    }
 }
+
 </style>
