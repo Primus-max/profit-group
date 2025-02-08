@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from 'vue'
-import LogoIcon from '@/components/icons/LogoIcon.vue'
+import { ref } from 'vue';
+
+import LogoIcon from '@/components/icons/LogoIcon.vue';
 
 const props = defineProps({
   menuItems: {
@@ -20,7 +21,7 @@ const toggleMenu = () => {
   <nav class="navbar">
     <div class="navbar__content">
       <div class="main__logo">
-        <LogoIcon :animate="isLogoAnimate" />
+        <!-- <LogoIcon :animate="isLogoAnimate" /> -->
       </div>
       <!-- Десктопное меню -->
       <ul class="navbar__menu">

@@ -3,9 +3,14 @@ defineProps({
   animate: {
     type: Boolean,
     default: true
+  },
+  color: {
+    type: String,
+    default: 'var(--color-blue)'
   }
 })
 </script>
+
 
 <template>    
     <svg :class="{ 'animate-logo': animate }" version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
@@ -218,6 +223,6 @@ defineProps({
 }
 
 .st0 {
-  fill: currentColor;
+  fill: var(--color-blue);
 }
 </style>
