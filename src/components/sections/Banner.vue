@@ -1,8 +1,8 @@
 <template>
   <BaseSection background="var(--color-gray2)" :height="dynamicHeight" :z-index="1">
     <div class="banner-container">
-      <LogoIcon class="logo" :class="{ 'sticky': isLogoSticky }" :animate="false" />
-      <div class="banner-info" :class="{ 'hidden': isLogoSticky }">
+      <LogoIcon class="logo" v-if="isLogoVisible" />
+      <div class="banner-info" :class="{ 'hidden': !isLogoVisible }">
         <h1 class="banner__title"><span style="color: var(--color-black);">Profit</span> GROUP</h1>
         <p class="banner__description">Ваш надёжный партнёр</p>
       </div>
@@ -20,6 +20,10 @@ import {
 
 import LogoIcon from '@/components/icons/LogoIcon.vue';
 import BaseSection from '@/components/sections/base/BaseSection.vue';
+import { useLogoStore } from '@/stores/logoStore';
+
+const logoStore = useLogoStore();
+const isLogoVisible = ref(logoStore.isVisible);
 
 const dynamicHeight = computed(() => {
   const width = window.innerWidth;
@@ -32,26 +36,24 @@ const dynamicHeight = computed(() => {
   }
 });
 
-const isLogoSticky = ref(false);
-const lastScrollY = ref(0);
-
 const handleScroll = () => {
-  const logo = document.querySelector('.logo');
   const navbar = document.querySelector('.navbar');
+  const bannerContainer = document.querySelector('.banner-container');
 
-  if (logo && navbar) {
-    const currentScrollY = window.scrollY;
-    const logoRect = logo.getBoundingClientRect();
+  if (navbar && bannerContainer) {
     const navbarRect = navbar.getBoundingClientRect();
+    const bannerRect = bannerContainer.getBoundingClientRect();
 
-    // Проверяем, скрывается ли логотип под навбаром
-    if (logoRect.bottom < navbarRect.top) {
-      isLogoSticky.value = true; // Логотип прилип
-    } else if (navbarRect.bottom > logoRect.top) {
-      isLogoSticky.value = false; // Логотип возвращается на место
+    const shouldShowLogo = bannerRect.bottom > navbarRect.top;
+    const shouldHideLogo = bannerRect.bottom <= navbarRect.top;
+
+    if (shouldShowLogo && !isLogoVisible.value) {
+      isLogoVisible.value = true;
+      logoStore.setVisibility(true);
+    } else if (shouldHideLogo && isLogoVisible.value) {
+      isLogoVisible.value = false;
+      logoStore.setVisibility(false);
     }
-
-    lastScrollY.value = currentScrollY; // Обновляем последнее значение прокрутки
   }
 };
 
@@ -69,16 +71,7 @@ onBeforeUnmount(() => {
   width: 150px;
   height: 150px;
   margin-bottom: 20px;
-  transition: all 0.3s ease;
-}
-
-.logo.sticky {
-  position: fixed;
-  top: 10px; /* Отрегулируйте по необходимости */
-  left: 20px; /* Перемещаем логотип влево */
-  width: 100px; /* Уменьшаем размер логотипа */
-  height: 100px; /* Уменьшаем размер логотипа */
-  z-index: 100; /* Убедитесь, что логотип выше других элементов */
+  transition: opacity 0.3s ease;
 }
 
 .banner-container {
@@ -92,11 +85,11 @@ onBeforeUnmount(() => {
 }
 
 .banner-info {
-  transition: opacity 0.3s ease; /* Плавный переход для текста */
+  transition: opacity 0.3s ease;
 }
 
 .banner-info.hidden {
-  display: none; /* Скрываем текст при прилипании логотипа */
+  display: none;
 }
 
 .banner__title {
@@ -128,12 +121,10 @@ onBeforeUnmount(() => {
   .logo {
     width: 400px;
     height: 400px;
-
   }
   .banner__title {
     font-size: 4rem;
   }
-
   .banner__description {
     font-size: 1.75rem;
   }

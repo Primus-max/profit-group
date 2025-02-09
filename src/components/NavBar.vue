@@ -2,26 +2,27 @@
 import { ref } from 'vue';
 
 import LogoIcon from '@/components/icons/LogoIcon.vue';
+import { useLogoStore } from '@/stores/logoStore';
 
 const props = defineProps({
   menuItems: {
     type: Array,
     default: () => []
   }
-})
+});
 
-const isMenuOpen = ref(false)
-const isLogoAnimate = ref(true);
+const logoStore = useLogoStore();
+const isMenuOpen = ref(false);
 const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value
-}
+  isMenuOpen.value = !isMenuOpen.value;
+};
 </script>
 
 <template>
   <nav class="navbar">
     <div class="navbar__content">
-      <div class="main__logo">
-        <!-- <LogoIcon :animate="isLogoAnimate" /> -->
+      <div class="main__logo" >
+        <LogoIcon v-if="!logoStore.isVisible"/>
       </div>
       <!-- Десктопное меню -->
       <ul class="navbar__menu">

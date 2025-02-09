@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue';
+
 import NavBar from '@/components/NavBar.vue';
 import AboutUs from '@/components/sections/AboutUs.vue';
 import Banner from '@/components/sections/Banner.vue';
@@ -11,7 +13,6 @@ import OurAdvantages from '@/components/sections/OurAdvantages.vue';
 import Services from '@/components/sections/Services.vue';
 </script>
 
-
 <template>
   <div class="main-view">
     <header>
@@ -21,10 +22,10 @@ import Services from '@/components/sections/Services.vue';
         { id: 'services', label: 'Услуги' },
         { id: 'portfolio', label: 'Портфолио' },
         { id: 'contacts', label: 'Контакты' }
-      ]" />
+      ]"  />
     </header>
     <main class="main-view__container">
-      <Banner />
+      <Banner/>
       <AboutUs />
       <OurAchievements />
       <GetConsultation />

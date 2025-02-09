@@ -2,7 +2,7 @@
 defineProps({
   animate: {
     type: Boolean,
-    default: true
+    default: false
   },
   color: {
     type: String,
