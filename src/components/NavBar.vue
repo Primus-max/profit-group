@@ -1,5 +1,9 @@
 <script setup>
-import { ref } from 'vue';
+import {
+  computed,
+  ref,
+  watch,
+} from 'vue';
 
 import LogoIcon from '@/components/icons/LogoIcon.vue';
 import { useLogoStore } from '@/stores/logoStore';
@@ -13,19 +17,31 @@ const props = defineProps({
 
 const logoStore = useLogoStore();
 const isMenuOpen = ref(false);
+const isLogoShown  = ref(!logoStore.isVisible);
+
+// watch(logoStore.isVisible, (newVal) => {
+//   isLogoShown.value = newVal;
+// });
+
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
+
 </script>
 
 <template>
   <nav class="navbar">
     <div class="navbar__content">
-      <div class="main__logo" >
-        <LogoIcon v-if="!logoStore.isVisible"/>
+      <div class="main__logo">
+        <LogoIcon v-if="!logoStore.isVisible" />
+      </div>
+      <div class="banner__title-container">
+        <h1 class="banner__title" v-if="!logoStore.isVisible"><span style="color: var(--color-black);">Profit</span>
+          GROUP</h1>
       </div>
       <!-- Десктопное меню -->
       <ul class="navbar__menu">
+
         <li v-for="item in menuItems" :key="item.id">
           <a :href="`#${item.id}`">{{ item.label }}</a>
         </li>
@@ -71,6 +87,22 @@ const toggleMenu = () => {
 
 .navbar__logo {
   height: 40px;
+}
+
+.banner__title-container {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+
+.banner__title {
+  font-size: 1.9rem;
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+  /* height: 50px; */
+  /* margin: 10px 0; */
 }
 
 /* Мобильное меню по умолчанию */
@@ -142,8 +174,19 @@ const toggleMenu = () => {
   color: var(--color-black);
 }
 
+/* @media (min-width:320px) {
+  .banner__title {
+    font-size: 1.9rem;
+  }
+} */
+
 /* Tablet (768px and up) */
+
 @media (min-width: 768px) {
+  .banner__title {
+    font-size: 2.5rem;
+  }
+
   .navbar__content {
     width: 85%;
   }
