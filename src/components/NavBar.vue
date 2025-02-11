@@ -36,8 +36,8 @@ const toggleMenu = () => {
         <LogoIcon v-if="!logoStore.isVisible" />
       </div>
       <div class="banner__title-container">
-        <h1 class="banner__title" v-if="!logoStore.isVisible"><span style="color: var(--color-black);">Profit</span>
-          GROUP</h1>
+        <h1 class="banner__title" v-if="!logoStore.isVisible"><span style="color: var(--color-black);">Profit</span><span style="color: gray">
+          GROUP</span></h1>
       </div>
       <!-- Десктопное меню -->
       <ul class="navbar__menu">
