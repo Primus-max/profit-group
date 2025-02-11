@@ -1,9 +1,9 @@
 <template>
   <div :class="['service-card']">
-    <h3 class="service-card__title">{{ title }}</h3>
-    <p class="service-card__description">{{ description }}</p>
+    <h3 class="service-card__title" v-html="title"></h3>
+    <p class="service-card__description" v-html="description"></p>
     <ul class="service-card__list">
-      <li v-for="(item, index) in items" :key="index">{{ item }}</li>
+      <li v-for="(item, index) in items" :key="index" v-html="item"></li>
     </ul>
   </div>
 </template>

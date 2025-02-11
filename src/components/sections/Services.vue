@@ -13,6 +13,7 @@
                     v-for="service in services" 
                     :key="service.id" 
                     :service="{
+                        id: service.id,
                         title: service.name,
                         description: service.description
                     }" 
