@@ -35,45 +35,41 @@ import Service from '@/components/Service.vue';
 const dynamicHeight = computed(() => {
     const width = window.innerWidth;
     if (width < 600) {
-        return '1069px';
+        return '900px';
     }else if (width >= 600 && width < 768){
-        return '1069px';
+        return '916px';
     } else if (width >= 768 && width < 1024) {
         return '800px';
     } else {
-        return '820px';
+        return '710px';
     }
 });
 
 const services = [
     {
         id: 1,
-        name: 'ЮРИДИЧЕСКОЕ СОПРОВОЖДЕНИЕ БИЗНЕС-ПРОЕКТОВ',
+        name: 'Налоговый консалтинг',
         description: ''
+
     },
     {
         id: 2,
-        name: 'РАБОТА С МАРКЕТПЛЕЙСАМИ',
+        name: 'Тендерное сопровождение',
         description: ''
     },
+
     {
         id: 3,
-        name: 'ЮРИДИЧЕСКИЕ УСЛУГИ В СФЕРЕ НЕДВИЖИМОСТИ',
+        name: 'Юридическое сопровождение бизнес проектов. Арбитраж. Банкротство. Антикризисные меры',
         description: ''
 
     },
     {
         id: 4,
-        name: 'ЗАЩИТА ПРАВ АВТОВЛАДЕЛЬЦЕВ',
+        name: 'Уголовно-правовая помощь. Антирейдерские мероприятия',
         description: ''
 
-    },
-    {
-        id: 5,
-        name: 'СЕМЕЙНЫЕ ДЕЛА',
-        description: ''
-
-    }
+    },    
 ]
 </script>
 

@@ -41,7 +41,6 @@ const toggleMenu = () => {
       </div>
       <!-- Десктопное меню -->
       <ul class="navbar__menu">
-
         <li v-for="item in menuItems" :key="item.id">
           <a :href="`#${item.id}`">{{ item.label }}</a>
         </li>
