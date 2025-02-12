@@ -38,6 +38,9 @@ defineProps({
   align-items: center;
   justify-content: center;
   margin-top: var(--section-margin-overlay);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .has-radius {
@@ -55,6 +58,14 @@ defineProps({
   width: 100%;
   height: 100%;
   display: flex; 
+}
+
+@media (max-width: 600px) {
+  .base-section {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
 
 /* @media (min-width: 768px) {

@@ -1,12 +1,14 @@
 <template>
-  <BaseSection background="var(--color-gray2)" :height="dynamicHeight" :z-index="1">
-    <div class="banner-container">
-      <LogoIcon class="logo" v-if="isLogoVisible" />
-      <div class="banner-info" :class="{ 'hidden': !isLogoVisible }">
-        <h1 class="banner__title"><span style="color: var(--color-black);">Profit</span> GROUP</h1>
-        <p class="banner__description">Ваш надёжный партнёр</p>
+  <BaseSection background="url('/banner.jpg')" :height="dynamicHeight" :z-index="1" id="home">
+    
+      <div class="banner-container">
+        <LogoIcon class="logo" v-if="isLogoVisible" />
+        <div class="banner-info" :class="{ 'hidden': !isLogoVisible }">
+          <h1 class="banner__title"><span style="color: var(--color-black);">Profit</span> GROUP</h1>
+          <p class="banner__description">Ваш надёжный партнёр</p>
+        </div>
       </div>
-    </div>
+    
   </BaseSection>
 </template>
 
@@ -77,11 +79,14 @@ onBeforeUnmount(() => {
 .banner-container {
   width: 100%;
   height: 100%;
-  display: flex;  
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;  
+  padding: 20px;
+  /* background-image: url('/banner.jpg'); */
+  background-size: cover;
+  background-position: center;
 }
 
 .banner-info {
@@ -109,6 +114,7 @@ onBeforeUnmount(() => {
   .banner__title {
     font-size: 3.25rem;
   }
+
   .banner__description {
     font-size: 1.5rem;
   }
@@ -118,13 +124,16 @@ onBeforeUnmount(() => {
   .banner-container {
     flex-direction: row;
   }
+
   .logo {
     width: 400px;
     height: 400px;
   }
+
   .banner__title {
     font-size: 4rem;
   }
+
   .banner__description {
     font-size: 1.75rem;
   }

@@ -1,5 +1,5 @@
 <template>
-  <BaseSection background="var(--color-white)" :z-index="2" :height="dynamicHeight"  has-radius>
+  <BaseSection background="var(--color-white)" :z-index="2" :height="dynamicHeight"  has-radius id="about">
     <div class="about-us__container">
       <h2 class="about-us__title">О НАС </h2>
       <p class="about-us__description">

@@ -1,5 +1,5 @@
 <template>
-    <BaseSection background="var(--color-gray4)" :z-index="3" :height="dynamicHeight" has-radius>
+    <BaseSection background="var(--color-gray4)" :z-index="3" :height="dynamicHeight" has-radius id="achievements">
         <div class="our-achievements_container">
             <div class="our-achievements_content">
                 <h2 class="our-achievements__title">НАШИ ДОСТИЖЕНИЯ</h2>

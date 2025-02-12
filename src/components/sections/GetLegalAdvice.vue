@@ -1,5 +1,5 @@
 <template>
-    <BaseSection background="var(--color-white)" :z-index="9" :height="dynamicHeight" has-radius>
+    <BaseSection background="var(--color-white)" :z-index="9" :height="dynamicHeight" has-radius id="contacts">
         <div class="wrapper">
             <div class="get-consultation__header">
                 <h2 class="get-consultation__title">Нужна юридическая консультация эксперта?</h2>
@@ -42,7 +42,7 @@ import BaseSection from '@/components/sections/base/BaseSection.vue';
 const dynamicHeight = computed(() => {
     const width = window.innerWidth;
     if (width < 600) {
-        return '103 0px';
+        return '1030px';
     } else if (width >= 600 && width < 768) {
         return '1000px';
     } else if (width >= 600 && width < 1024) {

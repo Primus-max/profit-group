@@ -11,7 +11,7 @@ import { useLogoStore } from '@/stores/logoStore';
 const props = defineProps({
   menuItems: {
     type: Array,
-    default: () => []
+    required: true,
   }
 });
 
@@ -42,7 +42,7 @@ const toggleMenu = () => {
       <!-- Десктопное меню -->
       <ul class="navbar__menu">
         <li v-for="item in menuItems" :key="item.id">
-          <a :href="`#${item.id}`">{{ item.label }}</a>
+          <a :href="'#' + item.id">{{ item.label }}</a>
         </li>
       </ul>
       <!-- Мобильная кнопка бургер -->
@@ -56,7 +56,7 @@ const toggleMenu = () => {
     <div class="navbar__mobile-menu" :class="{ 'is-open': isMenuOpen }">
       <ul>
         <li v-for="item in menuItems" :key="item.id">
-          <a :href="`#${item.id}`" @click="toggleMenu">{{ item.label }}</a>
+          <a :href="'#' + item.id" @click="toggleMenu">{{ item.label }}</a>
         </li>
       </ul>
     </div>

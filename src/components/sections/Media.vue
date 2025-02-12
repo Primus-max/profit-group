@@ -1,6 +1,6 @@
 <template>
     <BaseSection background="var(--color-white)" :z-index="10" :height="dynamicHeight" has-radius>
-        <div class="media-section__container">
+        <div class="media-section__container"  id="portfolio">            
             <h2 class="media-section__title">МЫ В МЕДИА</h2>
             <VideoCarousel 
                 title="Подкасты"

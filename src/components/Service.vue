@@ -8,7 +8,7 @@
         </div>
 
         <div class="service__toggle-container">
-            <button class="service__toggle" @click.stop="openModal(service.id)">
+            <button class="service__toggle" @click.stop="openModal()">
                 <span class="plus-icon"></span>
             </button>
         </div>  

@@ -1,5 +1,5 @@
 <template>
-    <BaseSection background="var(--color-white)" :z-index="4" :height="dynamicHeight" has-radius>
+    <BaseSection background="var(--color-white)" :z-index="4" :height="dynamicHeight" has-radius id="consultation">
         <div class="wrapper">
         <div class="get-consultation__container">
             <div class="get-consultation__header">

@@ -25,7 +25,7 @@ import Services from '@/components/sections/Services.vue';
       ]"  />
     </header>
     <main class="main-view__container">
-      <Banner/>
+      <Banner />
       <AboutUs />
       <OurAchievements />
       <GetConsultation />
