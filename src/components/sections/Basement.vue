@@ -1,5 +1,5 @@
 <template>
-    <BaseSection background="var(--color-black)" :height="dynamicHeight" :z-index="12">
+    <BaseSection background="var(--color-black)" :height="dynamicHeight" :z-index="12" id="contacts">
         <footer class="footer">
             <div class="footer-top">
                 <LogoIcon class="logo" />

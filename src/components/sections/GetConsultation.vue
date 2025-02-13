@@ -1,10 +1,10 @@
 <template>
-    <BaseSection background="var(--color-white)" :z-index="4" :height="dynamicHeight" has-radius id="consultation">
+    <BaseSection background="var(--color-white)" :z-index="4" :height="dynamicHeight" has-radius id="order-call">
         <div class="wrapper">
         <div class="get-consultation__container">
             <div class="get-consultation__header">
 
-                <h2 class="get-consultation__title">Получитe консультацию</h2>
+                <h2 class="get-consultation__title">Заказать обратный звонок</h2>
                 <p class="get-consultation__description">
                     Укажите свои контактные данные, и наши специалисты свяжутся с Вами в ближайшее время
                 </p>
@@ -20,7 +20,7 @@
                     </div>
                     <Checkbox class="check-box" v-model="isChecked"
                         text="Я соглашаюсь на обработку персональных данных и принимаю условия политики конфиденциальности" />
-                    <button type="submit" @click.prevent class="form-submit">Получить консультацию</button>
+                    <button type="submit" @click.prevent class="form-submit">Отправить</button>
                 </form>
             </div>
         </div>
@@ -36,6 +36,7 @@ import {
 
 import Checkbox from '@/components/elemets/CheckBox.vue';
 import BaseSection from '@/components/sections/base/BaseSection.vue';
+import { scrollToAnchor } from '@/utils/scrollUtils';
 
 const dynamicHeight = computed(() => {
     const width = window.innerWidth;

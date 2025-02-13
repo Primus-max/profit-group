@@ -1,15 +1,12 @@
 <template>
-  <BaseSection style="background-image: url('/banner.jpg'); background-size: contain; background-size: cover; background-position: center center;
-	background-attachment: fixed;" :height="dynamicHeight" :z-index="1" id="home">
-
+  <BaseSection style="background-image: url('/banner.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;" :height="dynamicHeight" :z-index="1" id="home">
     <div class="banner-container">
-      <LogoIcon class="logo" v-if="isLogoVisible" />
-      <div class="banner-info" :class="{ 'hidden': !isLogoVisible }">
+      <LogoIcon class="logo" v-if="isLogoVisibleInBanner" />
+      <div class="banner-info" :class="{ 'hidden': !isLogoVisibleInBanner }">
         <h1 class="banner__title"><span style="color: var(--color-black);">Profit</span> GROUP</h1>
         <p class="banner__description">Ваш надёжный партнёр</p>
       </div>
     </div>
-
   </BaseSection>
 </template>
 
@@ -26,7 +23,7 @@ import BaseSection from '@/components/sections/base/BaseSection.vue';
 import { useLogoStore } from '@/stores/logoStore';
 
 const logoStore = useLogoStore();
-const isLogoVisible = ref(logoStore.isVisible);
+const isLogoVisibleInBanner = ref(true); // Логотип виден в баннере по умолчанию
 
 const dynamicHeight = computed(() => {
   const width = window.innerWidth;
@@ -47,15 +44,15 @@ const handleScroll = () => {
     const navbarRect = navbar.getBoundingClientRect();
     const bannerRect = bannerContainer.getBoundingClientRect();
 
-    const shouldShowLogo = bannerRect.bottom > navbarRect.top;
-    const shouldHideLogo = bannerRect.bottom <= navbarRect.top;
+    // Проверяем, нужно ли показывать логотип в навбаре
+    const shouldShowLogoInNavbar = bannerRect.bottom <= navbarRect.top;
 
-    if (shouldShowLogo && !isLogoVisible.value) {
-      isLogoVisible.value = true;
-      logoStore.setVisibility(true);
-    } else if (shouldHideLogo && isLogoVisible.value) {
-      isLogoVisible.value = false;
-      logoStore.setVisibility(false);
+    if (shouldShowLogoInNavbar && isLogoVisibleInBanner.value) {
+      isLogoVisibleInBanner.value = false; // Скрываем логотип в баннере
+      logoStore.setVisibility(true); // Показываем логотип в навбаре
+    } else if (!shouldShowLogoInNavbar && !isLogoVisibleInBanner.value) {
+      isLogoVisibleInBanner.value = true; // Показываем логотип в баннере
+      logoStore.setVisibility(false); // Скрываем логотип в навбаре
     }
   }
 };
@@ -85,7 +82,6 @@ onBeforeUnmount(() => {
   align-items: center;
   text-align: center;
   padding: 20px;
-  /* background-image: url('/banner.jpg'); */
   background-size: cover;
   background-position: center;
 }

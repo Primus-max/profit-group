@@ -1,5 +1,5 @@
 <template>
-    <BaseSection background="var(--color-white)" :z-index="9" :height="dynamicHeight" has-radius id="contacts">
+    <BaseSection background="var(--color-white)" :z-index="9" :height="dynamicHeight" has-radius id="get-consultation">
         <div class="wrapper">
             <div class="get-consultation__header">
                 <h2 class="get-consultation__title">Нужна юридическая консультация эксперта?</h2>

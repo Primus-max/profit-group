@@ -19,8 +19,12 @@ import Services from '@/components/sections/Services.vue';
       <NavBar :menuItems="[
         { id: 'home', label: 'Главная' },
         { id: 'about', label: 'О нас' },
+        { id: 'achievements', label: 'Достижения' },
+        { id: 'order-call', label: 'Заказать звонок' },
         { id: 'services', label: 'Услуги' },
-        { id: 'portfolio', label: 'Портфолио' },
+        { id: 'media', label: 'Мы в медиа' },
+        { id: 'advantages', label: 'Преимущества' },
+        { id: 'get-consultation', label: 'Консультация' },
         { id: 'contacts', label: 'Контакты' }
       ]"  />
     </header>

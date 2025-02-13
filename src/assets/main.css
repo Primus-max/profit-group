@@ -18,6 +18,10 @@ body {
 	background-attachment: fixed;
 }
 
+.modal-content{
+  padding-right: 40px !important;
+}
+
 @media (min-width: 1024px) {
   body {
     display: block;
