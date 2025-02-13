@@ -38,9 +38,10 @@ defineProps({
   align-items: center;
   justify-content: center;
   margin-top: var(--section-margin-overlay);
-  background-size: cover;
-  background-position: center;
+  /* background-size: cover; */
+  /* background-position: center;
   background-repeat: no-repeat;
+  min-height: 100vh; */
 }
 
 .has-radius {
@@ -57,15 +58,24 @@ defineProps({
 .base-section__content {
   width: 100%;
   height: 100%;
-  display: flex; 
+  display: flex;
 }
 
+/* .section {
+  background-image: url('/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+} */
+
 @media (max-width: 600px) {
-  .base-section {
-    background-size: contain;
-    background-position: center;
+  /* .base-section {
+    background-size: 100% auto; 
+    background-position: center top;
     background-repeat: no-repeat;
-  }
+  } */
 }
 
 /* @media (min-width: 768px) {

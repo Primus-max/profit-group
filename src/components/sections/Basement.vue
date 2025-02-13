@@ -5,17 +5,29 @@
                 <LogoIcon class="logo" />
                 <!-- <img src="" alt="Логотип" class="logo" /> -->
 
-                <button class="call-button" @click="startCall">{{ phoneNumber }}</button>
+                <div class="contacts-container">
+                    <button class="call-button" @click="startCall">{{ phoneNumber }}</button>
+                    <a :href="'mailto:natarzam@yandex.ru'" class="email">natarzam@yandex.ru</a>
+                </div>
             </div>
+            <p class="footer-rights director">Генеральный директор:
+                <br>
+                Золототрубова Наталья Алексеевна,
+                <br>
+                государственный
+                советник РФ 3 класса,
+                <br>
+                Аттестованный преподаватель налогового права
+                <br>
+                Палаты Налоговых Консультантов
+            </p>
             <div class="footer-bottom">
-                <a :href="'mailto:natarzam@yandex.ru'" class="email">natarzam@yandex.ru</a>
                 <div class="contact-info">
                     <p class="address">г. Москва, ул. Нагатинская, д. 2, офис 210</p>
                     <p class="inn">ИНН: 9724206002</p>
                     <p class="ogrn">ОГРН: 124770069047</p>
                 </div>
             </div>
-            <p class="footer-rights">Клиентам ПАО Банк «ВТБ» – скидки на услуги 50%</p>             
             <div class="footer-rights">Все права защищены</div>
         </footer>
     </BaseSection>
@@ -36,7 +48,7 @@ const startCall = () => {
 const dynamicHeight = computed(() => {
     const width = window.innerWidth;
     if (width < 600) {
-        return '400px';
+        return '520px';
     } else {
         return '435px';
     }
@@ -45,8 +57,8 @@ const dynamicHeight = computed(() => {
 
 <style scoped>
 .footer {
+    height: 100%;
     width: 100%;
-
     color: white;
     display: flex;
     flex-direction: column;
@@ -58,7 +70,7 @@ const dynamicHeight = computed(() => {
 .footer-top {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .call-button {
@@ -77,15 +89,23 @@ const dynamicHeight = computed(() => {
     flex-direction: column;
 }
 
-.logo{
+.logo {
     width: 56px;
     height: 56px;
 }
 
 .contact-info {
-    height: 168px;
+    /* height: 168px; */
     display: flex;
     flex-direction: column;
+}
+
+.contacts-container {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .footer-rights {
@@ -93,18 +113,25 @@ const dynamicHeight = computed(() => {
     text-align: center;
 }
 
-.email {
+/* .email {
     margin-bottom: 20px;
-}
+} */
 
 .address {
     margin-bottom: 12px;
 }
 
+.director {
+    width: 100%;
+    align-self: flex-start;
+    text-align: left;
+    font-size: 0.8rem;
+}
+
 @media (max-width: 590px) {
-    .footer-top{
+    /* .footer-top {
         margin-bottom: 30px;
-    }
+    } */
 }
 
 

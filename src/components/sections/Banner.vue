@@ -1,14 +1,15 @@
 <template>
-  <BaseSection background="url('/banner.jpg')" :height="dynamicHeight" :z-index="1" id="home">
-    
-      <div class="banner-container">
-        <LogoIcon class="logo" v-if="isLogoVisible" />
-        <div class="banner-info" :class="{ 'hidden': !isLogoVisible }">
-          <h1 class="banner__title"><span style="color: var(--color-black);">Profit</span> GROUP</h1>
-          <p class="banner__description">Ваш надёжный партнёр</p>
-        </div>
+  <BaseSection style="background-image: url('/banner.jpg'); background-size: contain; background-size: cover; background-position: center center;
+	background-attachment: fixed;" :height="dynamicHeight" :z-index="1" id="home">
+
+    <div class="banner-container">
+      <LogoIcon class="logo" v-if="isLogoVisible" />
+      <div class="banner-info" :class="{ 'hidden': !isLogoVisible }">
+        <h1 class="banner__title"><span style="color: var(--color-black);">Profit</span> GROUP</h1>
+        <p class="banner__description">Ваш надёжный партнёр</p>
       </div>
-    
+    </div>
+
   </BaseSection>
 </template>
 

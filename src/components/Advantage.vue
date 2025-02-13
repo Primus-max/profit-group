@@ -22,8 +22,9 @@ const props = defineProps({
 
 <style scoped>
 .container {    
-    height: 210px;
+    height: auto;
     display: flex;    
+    padding: 4px;
     border-radius: 20px;
 }
 

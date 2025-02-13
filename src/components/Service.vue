@@ -17,11 +17,11 @@
 
         <TenderServiceModal v-if="isModalOpen && currentModalType === 'TenderServiceModal'" :isOpen="isModalOpen" :closeModal="closeModal" />
 
-        <!-- <TaxConsultingModal v-if="isModalOpen && currentModalType === 'TaxConsultingModal'" :isOpen="isModalOpen" :closeModal="closeModal" />
+         <TaxConsultingModal v-if="isModalOpen && currentModalType === 'TaxConsultingModal'" :isOpen="isModalOpen" :closeModal="closeModal" />
 
-        <LegalSupportModal v-if="isModalOpen && currentModalType === 'LegalSupportModal'" :isOpen="isModalOpen" :closeModal="closeModal" />
+        <!-- <LegalSupportModal v-if="isModalOpen && currentModalType === 'LegalSupportModal'" :isOpen="isModalOpen" :closeModal="closeModal" /> -->
 
-        <CriminalLawModal v-if="isModalOpen && currentModalType === 'CriminalLawModal'" :isOpen="isModalOpen" :closeModal="closeModal" /> -->
+        <!-- <CriminalLawModal v-if="isModalOpen && currentModalType === 'CriminalLawModal'" :isOpen="isModalOpen" :closeModal="closeModal" />  -->
     </div>
 </template>
 
@@ -31,7 +31,7 @@ import { ref } from 'vue';
 // import CriminalLawModal from '@/components/modals/CriminalLawModal.vue';
 // import LegalSupportModal from '@/components/modals/LegalSupportModal.vue';
 import ServicesModal from '@/components/modals/ServicesModal.vue';
-// import TaxConsultingModal from '@/components/modals/TaxConsultingModal.vue';
+import TaxConsultingModal from '@/components/modals/TaxConsultingModal.vue';
 import TenderServiceModal from '@/components/modals/TenderServiceModal.vue';
 
 const props = defineProps({
@@ -61,7 +61,7 @@ const openModal = () => {
             currentModalType.value = 'TenderServiceModal'
             break
         case 3:
-            currentModalType.value = 'LegalSupportModal'
+            currentModalType.value = 'TaxConsultingModal'
             break
         case 4:
             currentModalType.value = 'CriminalLawModal'
