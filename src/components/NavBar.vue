@@ -34,8 +34,10 @@ const scrollToSection = (id) => {
         <LogoIcon v-if="logoStore.isVisible" />
       </div>
       <div class="banner__title-container">
-        <h1 class="banner__title" v-if="logoStore.isVisible"><span style="color: var(--color-black);">Profit</span><span style="color: gray"> GROUP</span></h1>
+        <h1 class="banner__title" v-if="logoStore.isVisible"><span style="color: var(--color-black);">Profit</span><span
+            style="color: gray"> GROUP</span></h1>
       </div>
+
       <!-- Десктопное меню -->
       <ul class="navbar__menu">
         <li v-for="item in menuItems" :key="item.id">
@@ -94,7 +96,7 @@ const scrollToSection = (id) => {
   height: 50px;
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
 }
 
 .banner__title {
@@ -105,12 +107,21 @@ const scrollToSection = (id) => {
   /* margin: 10px 0; */
 }
 
+.logo-container {
+  width: 24%;
+  display: flex;
+  justify-content: space-between;
+}
+
 /* Мобильное меню по умолчанию */
 .navbar__menu {
   display: none;
 }
 
 .navbar__burger {
+  position: fixed;
+  top: 20px;
+  right: 12px;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -174,11 +185,16 @@ const scrollToSection = (id) => {
   color: var(--color-black);
 }
 
-/* @media (min-width:320px) {
-  .banner__title {
-    font-size: 1.9rem;
+@media (max-width: 767px) {
+  .navbar__content {
+    width: 62%;
+    margin-right: 30%;
   }
-} */
+
+  .centered {
+    justify-content: center;
+  }
+}
 
 /* Tablet (768px and up) */
 
@@ -189,6 +205,7 @@ const scrollToSection = (id) => {
 
   .navbar__content {
     width: 85%;
+    align-items: flex-start
   }
 }
 
@@ -196,6 +213,7 @@ const scrollToSection = (id) => {
 @media (min-width: 1024px) {
   .navbar__content {
     width: 96%;
+    align-items: center;
     font-size: 0.8rem;
     gap: 1rem;
   }
