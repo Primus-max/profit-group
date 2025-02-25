@@ -1,15 +1,12 @@
 <template>
     <BaseSection background="var(--color-white)" :z-index="10" :height="dynamicHeight" has-radius id="media">
-        <div class="media-section__container"  id="portfolio">            
+        <div class="media-section__container" id="portfolio">
             <h2 class="media-section__title">МЫ В МЕДИА</h2>
-            <VideoCarousel 
-                title="Подкасты"
-                :videos="podcasts"
-            />
-            <VideoCarousel 
+            <VideoCarousel title="Подкасты" :videos="podcasts" />
+            <!-- <VideoCarousel 
                 title="Видео-ролики"
                 :videos="videoClips"
-            />
+            /> -->
         </div>
     </BaseSection>
 </template>
@@ -40,9 +37,15 @@ const dynamicHeight = computed(() => {
 const podcasts = ref([
     {
         id: 0,
-        title: 'Название подкаста',
+        title: 'PRO налоги',
+        url: 'https://vk.com/wall-227355630_3',
+        description: ''
+    },
+    {
+        id: 1,
+        title: 'PRO налоги',
         url: 'https://www.youtube.com/watch?v=ZRBtquAn1CQ',
-        description: 'Доп информация'
+        description: 'Рассказываем о налогах и сборах'
     },
     // {
     //     id: 1,
@@ -64,32 +67,32 @@ const podcasts = ref([
     // },
 ]);
 
-const videoClips = ref([
-    {
-        id: 0,
-        title: 'Название видео',
-        url: 'https://vk.com/wall-227355630_3',
-        description: 'Доп информация'
-    },
-    {
-        id: 1,
-        title: 'Название видео',
-        url: 'https://vk.com/wall-227355630_3',
-        description: 'Доп информация'
-    },   
-    {
-        id: 2,
-        title: 'Название видео',
-        url: 'https://vk.com/wall-227355630_3',
-        description: 'Доп информация'
-    },
-    {
-        id: 3,
-        title: 'Название видео',
-        url: 'https://vk.com/wall-227355630_3',
-        description: 'Доп информация'
-    },
-]);
+// const videoClips = ref([
+//     {
+//         id: 0,
+//         title: 'Название видео',
+//         url: 'https://vk.com/wall-227355630_3',
+//         description: 'Доп информация'
+//     },
+//     {
+//         id: 1,
+//         title: 'Название видео',
+//         url: 'https://vk.com/wall-227355630_3',
+//         description: 'Доп информация'
+//     },
+//     {
+//         id: 2,
+//         title: 'Название видео',
+//         url: 'https://vk.com/wall-227355630_3',
+//         description: 'Доп информация'
+//     },
+//     {
+//         id: 3,
+//         title: 'Название видео',
+//         url: 'https://vk.com/wall-227355630_3',
+//         description: 'Доп информация'
+//     },
+// ]);
 </script>
 
 <style scoped>

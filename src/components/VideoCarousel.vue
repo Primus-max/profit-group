@@ -5,12 +5,15 @@
             <div class="video-carousel__content" ref="carouselContent">
                 <div v-for="video in videos" :key="video.id" class="video-item">
                     <div class="video-wrapper">
-                        <iframe 
-                            :src="getEmbedUrl(video.url)" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                        ></iframe>
+                        <div class="vk-wrap">
+                            <iframe 
+                                :src="getEmbedUrl(video.url)" 
+                                width="853"
+                                height="480"
+                                allow="encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                                frameborder="0"
+                                allowfullscreen></iframe>
+                        </div>
                     </div>
                     <h4 class="video-item__title">{{ video.title }}</h4>
                     <p class="video-item__description">{{ video.description }}</p>
@@ -68,10 +71,21 @@ const prevSlide = () => {
     carouselContent.value.scrollBy({ left: -300, behavior: 'smooth' });
 };
 
-const getEmbedUrl = (url) => {    
+const isVKVideo = (url) => {
+    return url.includes('vk.ru') || url.includes('vk.com');
+};
+
+const getEmbedUrl = (url) => {
     if (url.includes('youtube.com')) {
         const videoId = url.split('v=')[1];
         return `https://www.youtube.com/embed/${videoId}?autoplay=0&controls=1&rel=0$showinfo=0$modestbranding=1`;
+    }
+    if (url.includes('vk.')) {
+        const match = url.match(/wall-(\d+)_(\d+)/);
+        if (match) {
+            const [, groupId, postId] = match;
+            return `https://vk.ru/video_ext.php?oid=-${groupId}&id=456239018&hd=2&autoplay=0`;
+        }
     }
     return url;
 };
@@ -84,6 +98,26 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.vk-wrap {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 56.2500%;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+
+.vk-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
 .video-carousel {
     width: 100%;
     margin-bottom: 2rem;
@@ -127,7 +161,7 @@ onMounted(() => {
 .video-wrapper {
     position: relative;
     width: 100%;
-    padding-top: 56.25%;
+    /* padding-top: 56.25%; */
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -211,7 +245,7 @@ onMounted(() => {
     }
 
     .video-wrapper {
-        padding-top: 65%;
+        /* padding-top: 65%; */
     }
 }
 
@@ -227,7 +261,7 @@ onMounted(() => {
     }
 
     .video-wrapper {
-        padding-top: 70%;
+        /* padding-top: 70%; */
     }
 }
 
