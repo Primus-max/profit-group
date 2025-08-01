@@ -70,47 +70,29 @@ const scrollToSection = (id) => {
 }
 
 .navbar__content {
-  width: 92%;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
-  transition: justify-content 0.3s ease;
-}
-
-.centered {
-  justify-content: center;
+  padding: 0.5rem;
+  gap: 0.5rem;
 }
 
 .main__logo {
-  width: 50px;
-  height: 50px;
-}
-
-.navbar__logo {
+  width: 40px;
   height: 40px;
+  flex-shrink: 0;
 }
 
 .banner__title-container {
-  height: 50px;
+  flex-grow: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .banner__title {
-  font-size: 1.9rem;
+  font-size: 1.5rem;
   font-weight: var(--fw-bold);
-  color: var(--color-white);
-  /* height: 50px; */
-  /* margin: 10px 0; */
-}
-
-.logo-container {
-  width: 24%;
-  display: flex;
-  justify-content: space-between;
+  white-space: nowrap;
 }
 
 /* Мобильное меню по умолчанию */
@@ -119,21 +101,18 @@ const scrollToSection = (id) => {
 }
 
 .navbar__burger {
-  position: fixed;
-  top: 20px;
-  right: 12px;
+  width: 40px;
+  height: 40px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 6px;
-  padding: 10px;
+  padding: 8px;
   cursor: pointer;
   background-color: transparent;
   border: none;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-  touch-action: manipulation;
+  flex-shrink: 0;
+  margin-right: 0.5rem;
 }
 
 .navbar__burger:active,
@@ -155,6 +134,7 @@ const scrollToSection = (id) => {
   position: fixed;
   top: -10px;
   /* Высота навбара */
+  
   left: 0;
   width: 100%;
   background: white;
@@ -185,16 +165,7 @@ const scrollToSection = (id) => {
   color: var(--color-black);
 }
 
-@media (max-width: 767px) {
-  .navbar__content {
-    width: 62%;
-    margin-right: 30%;
-  }
-
-  .centered {
-    justify-content: center;
-  }
-}
+/* Планшет и десктоп */
 
 /* Tablet (768px and up) */
 
