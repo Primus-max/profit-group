@@ -67,13 +67,15 @@ const scrollToSection = (id) => {
   width: 100%;
   background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 60px;
 }
 
 .navbar__content {
   width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0 0.5rem;
   gap: 0.5rem;
 }
 
@@ -146,7 +148,7 @@ const scrollToSection = (id) => {
 
 .navbar__mobile-menu.is-open {
   transform: translateY(0);
-  top: 72px;
+  top: 56px;
 }
 
 .navbar__mobile-menu ul {
