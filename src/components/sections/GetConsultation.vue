@@ -10,18 +10,12 @@
                 </p>
             </div>
             <div class="get-consultation__content">
-                <form class="get-consultation__form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Ваше имя" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="+7 (999)999-99-99" class="form-input">
-
-                    </div>
-                    <Checkbox class="check-box" v-model="isChecked"
-                        text="Я соглашаюсь на обработку персональных данных и принимаю условия политики конфиденциальности" />
-                    <button type="submit" @click.prevent class="form-submit">Отправить</button>
-                </form>
+                <ContactForm 
+                    class="get-consultation__form"
+                    formType="Заказ обратного звонка"
+                    @success="handleFormSuccess"
+                    @error="handleFormError"
+                />
             </div>
         </div>
     </div>
@@ -29,12 +23,9 @@
 </template>
 
 <script setup>
-import {
-  computed,
-  ref,
-} from 'vue';
+import { computed } from 'vue';
 
-import Checkbox from '@/components/elemets/CheckBox.vue';
+import ContactForm from '@/components/common/ContactForm.vue';
 import BaseSection from '@/components/sections/base/BaseSection.vue';
 import { scrollToAnchor } from '@/utils/scrollUtils';
 
@@ -48,7 +39,16 @@ const dynamicHeight = computed(() => {
         return '700px';
     }
 });
-const isChecked = ref(false)
+
+const handleFormSuccess = () => {
+    // Дополнительные действия при успешной отправке
+    console.log('Форма успешно отправлена');
+};
+
+const handleFormError = (error) => {
+    // Дополнительная обработка ошибок
+    console.error('Ошибка при отправке формы:', error);
+};
 </script>
 
 <style scoped>

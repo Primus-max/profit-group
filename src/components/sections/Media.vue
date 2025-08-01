@@ -2,6 +2,32 @@
     <BaseSection background="var(--color-white)" :z-index="10" :height="dynamicHeight" has-radius id="media">
         <div class="media-section__container" id="portfolio">
             <h2 class="media-section__title">МЫ В МЕДИА</h2>
+            
+            <!-- Форма обратной связи -->
+            <div class="contact-form">
+                <form @submit.prevent="sendEmail">
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            v-model="formData.name" 
+                            placeholder="Ваше имя" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <input 
+                            type="tel" 
+                            v-model="formData.phone" 
+                            placeholder="Ваш телефон" 
+                            required
+                        >
+                    </div>
+                    <button type="submit" :disabled="loading">
+                        {{ loading ? 'Отправка...' : 'Отправить' }}
+                    </button>
+                </form>
+            </div>
+
             <VideoCarousel title="Подкасты" :videos="podcasts" />
             <!-- <VideoCarousel 
                 title="Видео-ролики"
@@ -19,6 +45,7 @@ import {
 
 import BaseSection from '@/components/sections/base/BaseSection.vue';
 import VideoCarousel from '@/components/VideoCarousel.vue';
+import emailjs from '@emailjs/browser';
 
 const dynamicHeight = computed(() => {
     const width = window.innerWidth;
@@ -33,6 +60,27 @@ const dynamicHeight = computed(() => {
     }
 
 });
+
+const loading = ref(false);
+const formData = ref({
+    name: '',
+    phone: ''
+});
+
+const sendEmail = () => {
+    const subject = 'Новая заявка с сайта';
+    const body = `Имя: ${formData.value.name}%0D%0AТелефон: ${formData.value.phone}`;
+    const mailtoLink = `mailto:your-email@your-domain.ru?subject=${subject}&body=${body}`;
+    
+    window.location.href = mailtoLink;
+    
+    // Очищаем форму
+    formData.value.name = '';
+    formData.value.phone = '';
+    
+    // Показываем уведомление
+    alert('Спасибо! Сейчас откроется почтовый клиент для отправки данных.');
+};
 
 const podcasts = ref([
     {
@@ -122,5 +170,46 @@ const podcasts = ref([
     .media-section__container {
         padding: 4rem 2rem;
     }
+}
+
+.contact-form {
+    max-width: 400px;
+    margin: 0 auto 3rem auto;
+    padding: 2rem;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-primary, #007bff);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: var(--color-primary-dark, #0056b3);
+}
+
+button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
 }
 </style>
