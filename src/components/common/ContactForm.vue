@@ -18,6 +18,14 @@
                 required
             >
         </div>
+        <div class="form-group" v-if="showDescription">
+            <textarea 
+                v-model="formData.description" 
+                placeholder="Опишите ситуацию" 
+                class="form-textarea"
+                required
+            ></textarea>
+        </div>
         <Checkbox 
             class="check-box" 
             v-model="isChecked"
@@ -47,6 +55,10 @@ const props = defineProps({
     checkboxText: {
         type: String,
         default: 'Я соглашаюсь на обработку персональных данных и принимаю условия политики конфиденциальности'
+    },
+    showDescription: {
+        type: Boolean,
+        default: false
     }
 });
 
@@ -110,6 +122,23 @@ const handleSubmit = async () => {
     border-radius: 8px;
     background: var(--color-white);
     color: var(--color-black);
+}
+
+.form-textarea {
+    width: 100%;
+    min-height: 264px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid var(--color-gray1);
+    border-radius: 8px;
+    background: var(--color-white);
+    color: var(--color-black);
+    resize: none;
+    line-height: 1.2;
+}
+
+.form-textarea::placeholder {
+    color: #999;
 }
 
 .form-submit {

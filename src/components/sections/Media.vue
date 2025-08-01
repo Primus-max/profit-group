@@ -4,7 +4,7 @@
             <h2 class="media-section__title">МЫ В МЕДИА</h2>
             
             <!-- Форма обратной связи -->
-            <div class="contact-form">
+            <!-- <div class="contact-form">
                 <form @submit.prevent="sendEmail">
                     <div class="form-group">
                         <input 
@@ -26,7 +26,7 @@
                         {{ loading ? 'Отправка...' : 'Отправить' }}
                     </button>
                 </form>
-            </div>
+            </div> -->
 
             <VideoCarousel title="Подкасты" :videos="podcasts" />
             <!-- <VideoCarousel 

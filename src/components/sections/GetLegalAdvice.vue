@@ -9,20 +9,13 @@
             </div>
             <div class="get-consultation__container">
                 <div class="get-consultation__content">
-                    <form class="get-consultation__form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Ваше имя" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="+7 (999)999-99-99" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Опишите ситуацию" class="form-textarea"></textarea>
-                        </div>
-                        <Checkbox class="check-box" v-model="isChecked"
-                            text="Я соглашаюсь на обработку персональных данных и принимаю условия политики конфиденциальности" />
-                        <button type="submit" @click.prevent class="form-submit">Отправить заявку</button>
-                    </form>
+                    <ContactForm 
+                        class="get-consultation__form"
+                        formType="Юридическая консультация"
+                        :showDescription="true"
+                        @success="handleFormSuccess"
+                        @error="handleFormError"
+                    />
                 </div>
             </div>
 
@@ -31,12 +24,9 @@
 </template>
 
 <script setup>
-import {
-  computed,
-  ref,
-} from 'vue';
+import { computed } from 'vue';
 
-import Checkbox from '@/components/elemets/CheckBox.vue';
+import ContactForm from '@/components/common/ContactForm.vue';
 import BaseSection from '@/components/sections/base/BaseSection.vue';
 
 const dynamicHeight = computed(() => {
@@ -51,7 +41,14 @@ const dynamicHeight = computed(() => {
         return '1100px';
     }
 });
-const isChecked = ref(false)
+
+const handleFormSuccess = () => {
+    console.log('Форма юридической консультации успешно отправлена');
+};
+
+const handleFormError = (error) => {
+    console.error('Ошибка при отправке формы юридической консультации:', error);
+};
 </script>
 
 <style scoped>

@@ -12,9 +12,15 @@ export class EmailService {
             const templateParams = {
                 to_name: 'Администратор',
                 from_name: data.name,
-                phone: data.phone,
-                type: data.type || 'Заявка с сайта'
+                message: `Телефон: ${data.phone}
+Тип заявки: ${data.type || 'Заявка с сайта'}
+${data.description ? `\nОписание ситуации: ${data.description}` : ''}`,
+                phone_number: data.phone,
+                form_type: data.type || 'Заявка с сайта',
+                description: data.description || ''
             };
+
+            console.log('Отправляемые данные:', templateParams);
 
             const result = await emailjs.send(
                 EMAIL_CONFIG.SERVICE_ID,
