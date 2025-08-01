@@ -35,13 +35,16 @@ defineProps({
 .base-section {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   margin-top: var(--section-margin-overlay);
-  /* background-size: cover; */
-  /* background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh; */
+  padding-bottom: 60px;
+}
+
+.base-section__content {
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .has-radius {

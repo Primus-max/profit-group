@@ -38,18 +38,7 @@ import BaseSection from '@/components/sections/base/BaseSection.vue';
 
 const colorIcon = 'white';
 
-const dynamicHeight = computed(() => {
-    const width = window.innerWidth;
-    if (width < 600) {
-        return '1320px';
-    } else if (width >= 600 && width < 768) {
-        return '1100px';
-    } else if (width >= 768 && width < 1024) {
-        return '1100px';
-    } else {
-        return '900px';
-    }
-});
+const dynamicHeight = computed(() => 'auto');
 
 const infos = [
     {
@@ -87,22 +76,23 @@ const infos = [
 
 <style scoped>
 .advantages_container {
-    width: 100%;    
-    padding: 2rem 1rem;   
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;    
+    padding: 3rem 1rem;   
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
 }
 
 .advantages_content {
     width: 100%;
-    height: 100%;
-    /* margin-top: 20px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: flex-start;
+    align-items: stretch;
     gap: 20px;
+    margin-bottom: 2rem;
 }
 
 .advantages_header {

@@ -20,25 +20,15 @@ import { computed } from 'vue';
 
 import BaseSection from '@/components/sections/base/BaseSection.vue';
 
-const dynamicHeight = computed(() => {
-    const width = window.innerWidth;
-    if (width < 600) {
-        return '650px';
-    } else if (width >= 600 && width < 768) {
-        return '400px';
-    } else if (width >= 768 && width < 1024) {
-        return '540px';
-    } else {
-        return '520px';
-    }
-});
+const dynamicHeight = computed(() => 'auto');
 </script>
 
 <style scoped>
 .about-us__container {
   width: 100%;
-  height: 100%;
-  padding: 10px 24px; 
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 24px 80px; 
   display: flex;
   flex-direction: column;  
 }
@@ -68,15 +58,16 @@ const dynamicHeight = computed(() => {
 
 @media (min-width: 1024px)  {
   .about-us__container {
-    padding: 10px 100px;
+    padding: 60px 100px 120px;
   }
   .about-us__title {
     font-size: 3rem;
+    margin-bottom: 2rem;
   }
-
 
   .about-us__description {
     font-size: 1.4rem;
+    max-width: 1000px;
   }
 }
 </style>

@@ -29,16 +29,7 @@ import ContactForm from '@/components/common/ContactForm.vue';
 import BaseSection from '@/components/sections/base/BaseSection.vue';
 import { scrollToAnchor } from '@/utils/scrollUtils';
 
-const dynamicHeight = computed(() => {
-    const width = window.innerWidth;
-    if (width < 600) {
-        return '700px';
-    } else if (width >= 600 && width < 1024) {
-        return '700px';
-    } else {
-        return '700px';
-    }
-});
+const dynamicHeight = computed(() => 'auto');
 
 const handleFormSuccess = () => {
     // Дополнительные действия при успешной отправке
@@ -54,10 +45,19 @@ const handleFormError = (error) => {
 <style scoped>
 .wrapper {
     width: 100%;
-    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+    min-height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        padding: 2rem;
+    }
 }
 
 .get-consultation__container {

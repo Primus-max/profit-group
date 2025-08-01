@@ -29,18 +29,7 @@ import { computed } from 'vue';
 import ContactForm from '@/components/common/ContactForm.vue';
 import BaseSection from '@/components/sections/base/BaseSection.vue';
 
-const dynamicHeight = computed(() => {
-    const width = window.innerWidth;
-    if (width < 600) {
-        return '1030px';
-    } else if (width >= 600 && width < 768) {
-        return '1000px';
-    } else if (width >= 600 && width < 1024) {
-        return '1064px';
-    } else {
-        return '1100px';
-    }
-});
+const dynamicHeight = computed(() => 'auto');
 
 const handleFormSuccess = () => {
     console.log('Форма юридической консультации успешно отправлена');
@@ -54,12 +43,24 @@ const handleFormError = (error) => {
 <style scoped>
 .wrapper {
     width: 100%;
-    height: 100%;
-    padding: 60px 0 0 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
 
+@media (min-width: 768px) {
+    .wrapper {
+        padding: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .wrapper {
+        padding: 3rem 2rem;
+    }
 }
 
 .get-consultation__container {
