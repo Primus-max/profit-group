@@ -102,8 +102,7 @@ onMounted(() => {
     position: relative;
     width: 100%;
     height: 0;
-    padding-top: 56.2500%;
-    padding-bottom: 0;
+    padding-top: 56.25%;
     overflow: hidden;
 }
 
@@ -120,7 +119,7 @@ onMounted(() => {
 
 .video-carousel {
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .video-carousel__title {
@@ -190,8 +189,8 @@ onMounted(() => {
 .carousel-controls {
     display: flex;
     justify-content: center;
-    gap: 100px;
-    margin: 2rem 0;
+    gap: 50px;
+    margin: 1rem 0;
 }
 
 .carousel-btn {
@@ -252,16 +251,12 @@ onMounted(() => {
 /* Десктоп */
 @media (min-width: 1024px) {
     .video-carousel__container {
-        max-width: 900px;
+        max-width: 1000px;
         margin: 0 auto;
     }
 
     .video-item {
         flex: 0 0 100%;
-    }
-
-    .video-wrapper {
-        /* padding-top: 70%; */
     }
 }
 
@@ -269,10 +264,6 @@ onMounted(() => {
 @media (min-width: 1440px) {
     .video-carousel__container {
         max-width: 1100px;
-    }
-
-    .video-wrapper {
-        padding-top: 75%;
     }
 }
 </style>

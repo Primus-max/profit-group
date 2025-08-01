@@ -4,10 +4,7 @@ defineProps({
     type: String,
     default: 'var(--color-white)'
   },
-  height: {
-    type: String,
-    default: '100vh'
-  },
+  // height больше не нужен
   zIndex: {
     type: Number,
     default: 1
@@ -22,7 +19,6 @@ defineProps({
 <template>
   <section class="base-section" :class="{ 'has-radius': hasRadius }" :style="{
     background,
-    height,
     zIndex
   }">
     <div class="base-section__content">

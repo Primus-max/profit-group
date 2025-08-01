@@ -1,5 +1,5 @@
 <template>
-    <BaseSection background="var(--color-white)" :z-index="10" :height="dynamicHeight" has-radius id="media">
+    <BaseSection background="var(--color-white)" :z-index="10" has-radius id="media">
         <div class="media-section__container" id="portfolio">
             <h2 class="media-section__title">МЫ В МЕДИА</h2>
             
@@ -47,7 +47,7 @@ import BaseSection from '@/components/sections/base/BaseSection.vue';
 import VideoCarousel from '@/components/VideoCarousel.vue';
 import emailjs from '@emailjs/browser';
 
-const dynamicHeight = computed(() => 'auto');
+// Высота не нужна, секция будет по контенту
 
 const loading = ref(false);
 const formData = ref({
