@@ -69,7 +69,8 @@ const loading = ref(false);
 const formData = ref({
     name: '',
     phone: '',
-    type: props.formType
+    type: props.formType,
+    description: ''
 });
 
 const handleSubmit = async () => {
@@ -84,8 +85,12 @@ const handleSubmit = async () => {
         
         if (success) {
             // Очищаем форму после успешной отправки
-            formData.value.name = '';
-            formData.value.phone = '';
+            formData.value = {
+                name: '',
+                phone: '',
+                type: props.formType,
+                description: ''
+            };
             isChecked.value = false;
             
             emit('success');
@@ -151,16 +156,21 @@ const handleSubmit = async () => {
     border-radius: 8px;
     font-size: 1rem;
     font-weight: var(--fw-medium);
-    transition: background-color 0.7s ease;
+    transition: background-color 0.3s ease;
     align-self: center;
 }
 
-.form-submit:hover {
-    background-color: var(--color-black);
+.form-submit:not(:disabled) {
+    background-color: var(--color-blue);
+}
+
+.form-submit:not(:disabled):hover {
+    background-color: #1635c7; /* Немного темнее фирменного синего для hover */
 }
 
 .form-submit:disabled {
-    background-color: var(--color-gray1);
+    background-color: var(--color-black);
+    opacity: 0.7;
     cursor: not-allowed;
 }
 
