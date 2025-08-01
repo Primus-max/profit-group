@@ -1,24 +1,25 @@
 <template>
-    <BaseSection background="var(--color-white)" :z-index="4" :height="dynamicHeight" has-radius id="order-call">
+    <BaseSection background="var(--color-white)" :z-index="9" :height="dynamicHeight" has-radius id="get-consultation">
         <div class="wrapper">
-        <div class="get-consultation__container">
             <div class="get-consultation__header">
-
-                <h2 class="get-consultation__title">Заказать обратный звонок</h2>
+                <h2 class="get-consultation__title">Нужна юридическая консультация эксперта?</h2>
                 <p class="get-consultation__description">
-                    Укажите свои контактные данные, и наши специалисты свяжутся с Вами в ближайшее время
+                    Поделитесь своей ситуацией, и мы свяжем вас с нужным профессионалом
                 </p>
             </div>
-            <div class="get-consultation__content">
-                <ContactForm 
-                    class="get-consultation__form"
-                    formType="Заказ обратного звонка"
-                    @success="handleFormSuccess"
-                    @error="handleFormError"
-                />
+            <div class="get-consultation__container">
+                <div class="get-consultation__content">
+                    <ContactForm 
+                        class="get-consultation__form"
+                        formType="Юридическая консультация"
+                        :showDescription="true"
+                        @success="handleFormSuccess"
+                        @error="handleFormError"
+                    />
+                </div>
             </div>
+
         </div>
-    </div>
     </BaseSection>
 </template>
 
@@ -27,27 +28,26 @@ import { computed } from 'vue';
 
 import ContactForm from '@/components/common/ContactForm.vue';
 import BaseSection from '@/components/sections/base/BaseSection.vue';
-import { scrollToAnchor } from '@/utils/scrollUtils';
 
 const dynamicHeight = computed(() => {
     const width = window.innerWidth;
     if (width < 600) {
-        return '700px';
+        return '1030px';
+    } else if (width >= 600 && width < 768) {
+        return '1000px';
     } else if (width >= 600 && width < 1024) {
-        return '700px';
+        return '1064px';
     } else {
-        return '700px';
+        return '1100px';
     }
 });
 
 const handleFormSuccess = () => {
-    // Дополнительные действия при успешной отправке
-    console.log('Форма успешно отправлена');
+    console.log('Форма юридической консультации успешно отправлена');
 };
 
 const handleFormError = (error) => {
-    // Дополнительная обработка ошибок
-    console.error('Ошибка при отправке формы:', error);
+    console.error('Ошибка при отправке формы юридической консультации:', error);
 };
 </script>
 
@@ -55,16 +55,18 @@ const handleFormError = (error) => {
 .wrapper {
     width: 100%;
     height: 100%;
+    padding: 60px 0 0 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+
 }
 
 .get-consultation__container {
     width: 90%;
     max-width: 400px;
     padding: 2rem;
-    background: var(--color-blue);
+    background: var(--color-gray1);
     border-radius: 24px;
     color: var(--color-white);
 }
@@ -88,7 +90,7 @@ const handleFormError = (error) => {
     line-height: 1.4;
     margin-bottom: 2rem;
     font-weight: var(--fw-medium);
-    max-width: 300px;
+    max-width: 360px;
 }
 
 .get-consultation__content {
@@ -124,12 +126,22 @@ const handleFormError = (error) => {
 }
 
 .form-textarea {
-    min-height: 120px;
-    resize: vertical;
+    width: 100%;
+    min-height: 264px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    resize: none;
+    line-height: 1.2;
+}
+
+.form-textarea::placeholder {
+    color: #999;
 }
 
 .form-submit {
     width: 100%;
+
     max-width: 245px;
     height: 69px;
     padding: 1rem;
@@ -173,23 +185,22 @@ const handleFormError = (error) => {
     }
 
     .get-consultation__header {
-        flex: 1;
-        align-items: flex-start;
-        text-align: left;
+        width: 100%;               
         padding-right: 2rem;
     }
 
-    .get-consultation__content {
+    /* .get-consultation__content {
         flex: 1;
-    }
+    } */
 
     .get-consultation__title {
-        max-width: 400px;
+        max-width: 800px;
     }
 
     .get-consultation__description {
-        max-width: 400px;
+       width: 800px;
     }
+
 
     .get-consultation__form {
         width: 100%;

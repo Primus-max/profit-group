@@ -1,5 +1,5 @@
 <template>
-  <BaseSection background="var(--color-white)" :z-index="2" :height="dynamicHeight"  has-radius>
+  <BaseSection background="var(--color-white)" :z-index="2" :height="dynamicHeight"  has-radius id="about">
     <div class="about-us__container">
       <h2 class="about-us__title">О НАС </h2>
       <p class="about-us__description">
@@ -17,16 +17,19 @@
 
 <script setup>
 import { computed } from 'vue';
+
 import BaseSection from '@/components/sections/base/BaseSection.vue';
 
 const dynamicHeight = computed(() => {
     const width = window.innerWidth;
     if (width < 600) {
-        return '600px';
-    } else if (width >= 600 && width < 1024) {
-        return '460px';
+        return '650px';
+    } else if (width >= 600 && width < 768) {
+        return '400px';
+    } else if (width >= 768 && width < 1024) {
+        return '540px';
     } else {
-        return '550px';
+        return '520px';
     }
 });
 </script>
@@ -41,7 +44,7 @@ const dynamicHeight = computed(() => {
 }
 .about-us__title {
   font-size: 2.5rem;
-  font-weight: var(--fw-light);    
+  font-weight: var(--fw-bold);    
   color: var(--color-black);
   text-align: left;
 }

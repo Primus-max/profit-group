@@ -1,5 +1,5 @@
 <template>
-    <BaseSection background="var(--color-gray3)" :z-index="5" :height="dynamicHeight" has-radius>
+    <BaseSection background="var(--color-gray3)" :z-index="5" :height="dynamicHeight" has-radius id="services">
         <div class="services__container">
             <div class="services__header">
                 <h2 class="services__title">Услуги</h2>
@@ -8,10 +8,16 @@
                 </p>
             </div>
             <div class="services__content">
-                <Service class="service-item" ref="service" v-for="service in services" :key="service.id" :service="{
-                    title: service.name,
-                    description: service.description
-                }" />
+                <Service 
+                    class="service-item" 
+                    v-for="service in services" 
+                    :key="service.id" 
+                    :service="{
+                        id: service.id,
+                        title: service.name,
+                        description: service.description
+                    }" 
+                />
             </div>
         </div>
     </BaseSection>
@@ -30,68 +36,64 @@ import Service from '@/components/Service.vue';
 const dynamicHeight = computed(() => {
     const width = window.innerWidth;
     if (width < 600) {
-        return '987px';
-    } else if (width >= 600 && width < 1024) {
-        return '1069px';
+        return '900px';
+    }else if (width >= 600 && width < 768){
+        return '916px';
+    } else if (width >= 768 && width < 1024) {
+        return '800px';
     } else {
-        return '768px';
+        return '710px';
     }
 });
 
 const services = [
     {
         id: 1,
-        name: 'ЮРИДИЧЕСКОЕ СОПРОВОЖДЕНИЕ БИЗНЕС-ПРОЕКТОВ',
+        name: 'Налоговый консалтинг',
         description: ''
+
     },
     {
         id: 2,
-        name: 'РАБОТА С МАРКЕТПЛЕЙСАМИ',
+        name: 'Тендерное сопровождение',
         description: ''
     },
+
     {
         id: 3,
-        name: 'ЮРИДИЧЕСКИЕ УСЛУГИ В СФЕРЕ НЕДВИЖИМОСТИ',
+        name: 'Юридическое сопровождение бизнес проектов. Арбитраж. Банкротство. Антикризисные меры',
         description: ''
 
     },
     {
         id: 4,
-        name: 'ЗАЩИТА ПРАВ АВТОВЛАДЕЛЬЦЕВ',
+        name: 'Уголовно-правовая защита. Антирейдерские мероприятия',
         description: ''
 
-    },
-    {
-        id: 5,
-        name: 'СЕМЕЙНЫЕ ДЕЛА',
-        description: ''
-
-    }
+    },    
 ]
 </script>
 
 <style scoped>
 .services__container {
-    width: 100%;    
-    height: auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-
 }
 
 .services__header {
     width: 100%;
-    margin-top: 27px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    margin-bottom: 2rem;
 }
 
 .services__title {
-    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: var(--fw-medium);
     color: var(--color-white);
+    margin-bottom: 1rem;
 }
 
 .services__description {
@@ -102,25 +104,17 @@ const services = [
 }
 
 .services__content {
-    width: 100%;
-    height: auto;
     display: flex;
-    flex-wrap: wrap;    
-    align-content: flex-start;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .service-item {
     width: 100%;
-    height: 145px;
-    margin-inline: 5px;
-    margin-bottom: 10px;
-    padding: 2%;
+    min-height: 145px;
     background: var(--color-white);
     border-radius: 29px;
-    color: var(--color-black);
-    display: flex;
-    justify-content: space-between;
+    transition: all 0.3s ease;
 }
 
 .service-item__description {
@@ -129,33 +123,30 @@ const services = [
     color: var(--color-gray);
 }
 
-/* настройки для десктопа */
-@media (min-width: 1024px) {
+/* Планшет */
+@media (min-width: 768px) {
+    .services__container {
+        padding: 3rem 2rem;
+    }
+
     .service-item {
-        flex-direction: row;
-        width: 47%;
-        height: 150px;
-        margin-inline: 5px;
-        margin-bottom: 10px;
-        padding: 2%;
-        background: var(--color-white);
-        border-radius: 29px;
-        color: var(--color-black);
-        display: flex;
+        width: calc(50% - 0.5rem);
+    }
+}
+
+/* Десктоп */
+@media (min-width: 1024px) {
+    .services__container {
+        padding: 4rem 2rem;
     }
 
     .services__title {
-        font-size: 4rem;
-        color: var(--color-white);
         font-weight: var(--fw-light);
     }
 
-    .services__header {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+    .service-item {
+        width: calc(50% - 0.5rem);
+        min-height: 150px;
     }
-
 }
 </style>

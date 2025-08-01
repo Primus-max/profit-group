@@ -1,11 +1,12 @@
 <template>
-    <div class="conteiner card">
+    <div class="container card">
         <div class="content">
-            <span class="title">{{ info.title }}</span>
+            <h3 class="title">{{ info.title }}</h3>
             <p class="description">{{ info.description }}</p>
+
         </div>
         <div class="icon">
-            <slot ></slot>
+            <slot></slot>
         </div>
     </div>
 </template>
@@ -16,17 +17,17 @@ const props = defineProps({
         type: Object,
         required: true
     }
-})
+});
 </script>
 
-<style lang="css" scoped>
-.conteiner {
-    /* width: 350px; */
-    height: 190px;
-    /* margin-block: 10px; */
-    display: flex;
+<style scoped>
+.container {    
+    height: auto;
+    display: flex;    
+    padding: 4px;
     border-radius: 20px;
 }
+
 
 .content {
     width: 100%;
@@ -49,29 +50,48 @@ const props = defineProps({
     font-weight: var(--fw-light);
     line-height: 1.2;
     display: block;
-    /* Переносить текс */
     word-wrap: break-word;
     word-break: break-word;
     overflow-wrap: break-word;
     text-align: left;
+    color: var(--color-white);
 }
 
 .description {
     text-align: left;
     height: 100%;
     line-height: 1.2;
+    color: var(--color-white);
 }
 
+/* Планшет */
+@media (min-width: 600px) {
+    .container {
+        width: 100%;
+        height: 160px;
+    }
+    
 
-@media (min-width:768px) {
-    .conteiner {
-        width: 586px;
+    .icon {
+        width: 80px;
+        padding: 18px 20px 0 0;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .description {
+        font-size: 1.1rem;
+        line-height: 1.3;
     }
 }
 
-@media (min-width:1920px) {
-    .conteiner {
-        width: 600px;
+/* Большие экраны */
+@media (min-width: 1024px) {
+    .container {
+        height: 180px;
+        width: 560px;        
     }
 }
 </style>

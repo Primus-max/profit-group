@@ -1,8 +1,12 @@
 <script setup>
+import { ref } from 'vue';
+
 import NavBar from '@/components/NavBar.vue';
 import AboutUs from '@/components/sections/AboutUs.vue';
 import Banner from '@/components/sections/Banner.vue';
+import Basement from '@/components/sections/Basement.vue';
 import GetConsultation from '@/components/sections/GetConsultation.vue';
+import GetLegalAdvice from '@/components/sections/GetLegalAdvice.vue';
 import Media from '@/components/sections/Media.vue';
 import OurAchievements from '@/components/sections/OurAchievements.vue';
 import OurAdvantages from '@/components/sections/OurAdvantages.vue';
@@ -15,10 +19,14 @@ import Services from '@/components/sections/Services.vue';
       <NavBar :menuItems="[
         { id: 'home', label: 'Главная' },
         { id: 'about', label: 'О нас' },
+        { id: 'achievements', label: 'Достижения' },
+        { id: 'order-call', label: 'Заказать звонок' },
         { id: 'services', label: 'Услуги' },
-        { id: 'portfolio', label: 'Портфолио' },
+        { id: 'media', label: 'Мы в медиа' },
+        { id: 'advantages', label: 'Преимущества' },
+        { id: 'get-consultation', label: 'Консультация' },
         { id: 'contacts', label: 'Контакты' }
-      ]" />
+      ]"  />
     </header>
     <main class="main-view__container">
       <Banner />
@@ -26,21 +34,22 @@ import Services from '@/components/sections/Services.vue';
       <OurAchievements />
       <GetConsultation />
       <Services />
-      <OurAdvantages/>
-      <!-- <Media/>  -->
-    </main>
-    <footer>
-
-    </footer>
+      <Media />
+      <OurAdvantages />
+      <GetLegalAdvice />
+    </main>    
+      <Basement />    
   </div>
 </template>
+
+
 
 <style lang="css" scoped>
 .main-view {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   align-items: center;
 }
 
