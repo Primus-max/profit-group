@@ -28,11 +28,11 @@ const isLogoVisibleInBanner = ref(true); // Логотип виден в бан�
 const dynamicHeight = computed(() => {
   const width = window.innerWidth;
   if (width < 600) {
-    return '850px';
+    return '120vh';
   } else if (width >= 600 && width < 1024) {
-    return '1069px';
+    return '130vh';
   } else {
-    return '900px';
+    return '140vh';
   }
 });
 
@@ -68,8 +68,8 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .logo {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   margin-bottom: 20px;
   transition: opacity 0.3s ease;
 }
@@ -78,10 +78,12 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 20px;
+  padding-top: 60px;
   background-size: cover;
   background-position: center;
 }
